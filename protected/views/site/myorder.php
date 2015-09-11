@@ -78,7 +78,7 @@ $(function(){
 	                        	</tbody>
 	                        </table>
 	                        <p class="mt10">
-	                            <span class="real_pay">应付：<?php echo $v['total_price'];?>元</span>
+	                            <span class="real_pay">应付：<?php echo $v['total_price'];?>Ks</span>
 	                        </p>
 	                    </div>
 	                    <!--end of order_simp-->

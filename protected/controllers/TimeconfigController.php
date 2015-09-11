@@ -2,6 +2,11 @@
 error_reporting(E_ALL & ~E_NOTICE);
 class TimeConfigController extends Controller
 {
+    //Shop - 餐类
+    //菜单 - 地点
+    //我们为每一个Shop店都需要建立一个起始订购时间和结束订购时间
+    //考虑到最大可复用性，我们使用原定义linkman->starttime，tel->endtime
+    //格式统一为hh:mm:ss
 	public function filters()
 	{
 		return array(

@@ -333,7 +333,7 @@ $(function(){
 														</p>
 						                                <p class="price_outer">
 						                                    <span class="fr addToOrder">来一份</span>
-						                                    <span class="price"><?php echo $menus[$_index]['price'];?>元</span>
+						                                    <span class="price"><?php echo $menus[$_index]['price'];?>Ks</span>
 						                                </p>
 						                            </td>
 						                            <?php endfor;?>
@@ -416,8 +416,8 @@ $(function(){
 	<div id="right">
         <div class="right_item shadow" style="margin-top: 0px;">
              <p class="shop-info">
-                  电话：<?php echo $shop['tel'];?><br>
-                  联系人：<?php echo $shop['linkman'];?><br>
+                  结束时间：<?php echo $shop['endtime'];?><br>
+                  起始时间：<?php echo $shop['starttime'];?><br>
                   餐厅地址：<?php echo $shop['address'];?>
              </p>
         </div>
@@ -425,7 +425,7 @@ $(function(){
         <div id="foodBasket">
               <div class="right_item shadow" id="onlineOrder" style="display: none; border-top-color: rgb(125, 181, 0);">
                             <table id="tbbasket" cellpadding="0" cellspacing="0" width="100%" style="display: none;">
-                                <caption>美食筐</caption>
+                                <caption>美食筐（常驻员工仅允许订购一份！）</caption>
                                 <thead id="OrderHead">
                                     <tr>
                                         <th class="col1">
@@ -489,7 +489,7 @@ $(function(){
                                 <i id="basketshow" class="fl">
                                     <img src="<?php echo Yii::app()->baseUrl;?>/assets/images/front/no_food.png" width="28px" height="28px">
                                 </i>
-                                <a id="ComfirmOrder" href="javascript:void(0);" _href="<?php echo Yii::app()->createUrl('site/lookcart');?>" class="fr">去下单&gt; </a>
+                                <a id="ComfirmOrder" href="javascript:void(0);" _href="<?php echo Yii::app()->createUrl('site/lookcart',array('shop_id' => $shop['id']));?>" class="fr">去下单&gt; </a>
                                 <a id="seeNum" href="javascript:;" class="fr" style="display: none;">查看电话&gt; </a>
                             </div>
                 </div>

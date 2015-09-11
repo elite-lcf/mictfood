@@ -43,7 +43,7 @@
 		                <td style="cursor:pointer;color:<?php echo $v['status_color'];?>"><?php echo $v['status_text'];?></td>
 		                <td>
 		                	<?php foreach($v['product_info'] AS $_k => $_v):?>
-							<p><?php echo $_v['Name'];?> : <?php echo $_v['Price'];?> x <?php echo $_v['Count'];?>------<?php echo $_v['smallTotal'];?>元</p>		                  
+							<p><?php echo $_v['Name'];?> : <?php echo $_v['Price'];?> x <?php echo $_v['Count'];?>------<?php echo $_v['smallTotal'];?>Ks</p>		                  
 							<?php endforeach;?>
 		                </td>
 		                 <td>¥ <?php echo $v['total_price'];?></td>
@@ -73,11 +73,11 @@
       			<td><?php echo $v['name'];?></td>
       			<td>
       				<?php foreach ($v['product'] AS $_k => $_v):?>
-      				<p><?php echo $_v['name'];?> x <?php echo $_v['count'];?>------小计：<?php echo $_v['smallTotal'];?>元</p>
+      				<p><?php echo $_v['name'];?> x <?php echo $_v['count'];?>------小计：<?php echo $_v['smallTotal'];?>Ks</p>
       				<?php endforeach;?>
       			</td>
       			<td>
-      			<?php echo $v['shop_total_price'];?>元
+      			<?php echo $v['shop_total_price'];?>Ks
       			</td>
       		</tr>
       		<?php endforeach;?>
@@ -86,7 +86,7 @@
       			<tr>
       				<td>总计：</td>
       				<td></td>
-	      			<td><?php echo $total_price;?>元</td>
+	      			<td><?php echo $total_price;?>Ks</td>
       			</tr>
       		</tfoot>
       	</table>

@@ -212,8 +212,8 @@ CREATE TABLE IF NOT EXISTS `liv_shops` (
   `create_time` int(10) NOT NULL COMMENT '创建时间',
   `update_time` int(10) NOT NULL COMMENT '修改时间',
   `logo` varchar(250) DEFAULT NULL COMMENT '商家logo',
-  `tel` varchar(50) DEFAULT NULL COMMENT '联系电话',
-  `linkman` varchar(20) DEFAULT NULL COMMENT '联系人',
+  `endtime` varchar(50) DEFAULT NULL COMMENT '结束时间',
+  `starttime` varchar(20) DEFAULT NULL COMMENT '起始时间',
   `order_id` int(11) NOT NULL DEFAULT '0' COMMENT '排序',
   `url` varchar(128) NOT NULL COMMENT '商家url',
   PRIMARY KEY (`id`)

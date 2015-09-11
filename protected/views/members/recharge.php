@@ -46,7 +46,7 @@ $(function(){
               <label>您正在为<font color="blue"><?php echo $member_name;?></font>充值</label>
               <select id="money" class="small-input">
                 <?php foreach($recharge AS $_key => $_value):?>
-                <option value="<?php echo $_value;?>"><?php echo $_value;?>元</option>
+                <option value="<?php echo $_value;?>"><?php echo $_value;?> Ks</option>
                 <?php endforeach;?>
               </select>
             </p>

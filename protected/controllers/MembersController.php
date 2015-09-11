@@ -80,7 +80,7 @@ class MembersController extends Controller
 			$data[$k] = $v->attributes;
 			$data[$k]['create_time'] = Yii::app()->format->formatDate($v->create_time);
 			$data[$k]['update_time'] = Yii::app()->format->formatDate($v->update_time);
-			$data[$k]['balance'] 	 = $v->balance . '元';
+			$data[$k]['balance'] 	 = $v->balance . ' Ks';
 			$data[$k]['sex'] = Yii::app()->params['member_sex'][$data[$k]['sex']];
 			$data[$k]['status_text'] = Yii::app()->params['member_status'][$v->status];
 			$data[$k]['status_color'] = Yii::app()->params['status_color'][$v->status];		
@@ -175,7 +175,7 @@ class MembersController extends Controller
 		{
 			//记录充值记录
 			Yii::app()->record->record($member_id,$money,1);
-			$this->output(array('success' => 1,'successText' => '恭喜，您刚刚为' .$member->name.'充值了' . $money . '元,目前账户余额' . $member->balance . '元'));
+			$this->output(array('success' => 1,'successText' => '恭喜，您刚刚为' .$member->name.'充值了' . $money . ' Ks,目前账户余额' . $member->balance . ' Ks'));
 		}
 		else 
 		{
@@ -229,7 +229,7 @@ class MembersController extends Controller
 		{
 			//记录扣款记录
 			Yii::app()->record->record($member_id,$money);
-			$this->output(array('success' => 1,'successText' => '您刚刚为' .$member->name.'扣除了' . $money . '元,目前账户余额' . $member->balance . '元'));
+			$this->output(array('success' => 1,'successText' => '您刚刚为' .$member->name.'扣除了' . $money . ' Ks,目前账户余额' . $member->balance . ' Ks'));
 		}
 		else 
 		{

@@ -56,7 +56,7 @@ else
             
             <p>
               <label>价格</label>
-              <input class="text-input small-input" type="text" name="Menus[price]" value="<?php echo CHtml::encode($data['price']); ?>"/> 元
+              <input class="text-input small-input" type="text" name="Menus[price]" value="<?php echo CHtml::encode($data['price']); ?>"/> Ks
             </p>
             
             <p>

@@ -205,7 +205,7 @@ class MenusController extends Controller
 			$data[$k]['create_time'] = Yii::app()->format->formatDate($v->create_time);
 			$data[$k]['status_text'] = Yii::app()->params['menu_status'][$v->status];
 			$data[$k]['status_color'] = Yii::app()->params['status_color'][$v->status];			
-			$data[$k]['price'] = $v->price . '元/份';
+			$data[$k]['price'] = $v->price . ' Ks/份';
 		}
 		
 		//取出所有店家供前端选择

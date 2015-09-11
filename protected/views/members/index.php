@@ -63,7 +63,7 @@ $(function(){
               <tr>
               	<td>
               		<label>会员账户总金额</label>
-              		<label style="color:blue;"><?php echo $total_money;?> 元</label>
+              		<label style="color:blue;"><?php echo $total_money;?> Ks</label>
               	</td>
                 <td colspan="6">
                  <?php $this->widget('application.widgets.MyLinkPager', array(

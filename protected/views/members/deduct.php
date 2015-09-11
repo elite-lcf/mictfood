@@ -44,7 +44,7 @@ $(function(){
             
             <p>
               <label>您正在为<font color="blue"><?php echo $member_name;?></font>扣款</label>
-              <input type="text" name="money"  id="money" />元
+              <input type="text" name="money"  id="money" />Ks
             </p>
    
             <p>

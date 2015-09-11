@@ -45,14 +45,16 @@ else
             </p>
             
             <p>
-              <label>电话</label>
-              <input class="text-input small-input" type="text" name="Shops[tel]" value="<?php echo CHtml::encode($data['tel']); ?>"/>
+              <label>订餐起始时间</label>
+              <input class="text-input small-input" type="text" name="Shops[starttime]" value="<?php echo CHtml::encode($data['starttime']); ?>"/>
             </p>
             
             <p>
-              <label>联系人</label>
-              <input class="text-input small-input" type="text" name="Shops[linkman]" value="<?php echo CHtml::encode($data['linkman']); ?>"/>
+              <label>订餐结束时间</label>
+              <input class="text-input small-input" type="text" name="Shops[endtime]" value="<?php echo CHtml::encode($data['endtime']); ?>"/>
             </p>
+            
+
             
             <p>
               <label>商家网站链接</label>

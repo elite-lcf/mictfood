@@ -125,7 +125,7 @@ class FoodOrderController extends Controller
 			//判断用户的账户钱够不够扣钱
 			if($member->balance < $orderInfo->total_price)
 			{
-				$this->errorOutput(array('errorCode' => 1,'errorText' => '该用户账户余额不足只有' .$member->balance. '元'));
+				$this->errorOutput(array('errorCode' => 1,'errorText' => '该用户账户余额不足只有' .$member->balance. 'Ks'));
 			}
 			
 			$member->balance -= $orderInfo->total_price;

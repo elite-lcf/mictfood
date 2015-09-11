@@ -24,12 +24,12 @@
 	            </p>
 	            
 	            <p>
-	              <label>总价：<?php echo $data['total_price'];?>元</label>
+	              <label>总价：<?php echo $data['total_price'];?>Ks</label>
 	            </p>
 	            
 	            <p>
 	               <?php foreach($data['product_info'] AS $k => $v):?>
-	              <label><?php echo $v['Name'];?>x<?php echo $v['Count'];?>------------------------<?php echo $v['Price'];?>元</label>
+	              <label><?php echo $v['Name'];?>x<?php echo $v['Count'];?>------------------------<?php echo $v['Price'];?>Ks</label>
 	              <?php endforeach;?>
 	            </p>
 	            

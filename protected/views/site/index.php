@@ -24,6 +24,9 @@
                                     		{
                                     			break;
                                     		}
+                                    		//根据每个shop的starttime和endtime，判断是否在营业时间
+                                    		$_shopid = $shops[$_index]['id'];
+                                    		$isOnTime = Yii::app()->check_time->isShopOnTime($_shopid);
                               		?>	
                                     <td>
                                         <div class="si_block<?php if(!$isOnTime):?> si_closed <?php endif;?>" sid="0">
@@ -78,6 +81,13 @@
 	    <?php endforeach;?>
 	    </div>
 	</div>
+	<div class="right_item shadow" id="siteNotice">
+	    <h3>当前时间</h3>
+	    <div class="ri_body">
+	    <a href="<?php echo Yii::app()->createUrl('site/index') ?>"> <?php echo date('Y-m-d H:i:s');?> </a>
+	   
+	    </div>
+	</div>
 	<div class="right_item shadow" id="customerService">
 	    <h3>
 	        客户服务</h3>
@@ -91,7 +101,7 @@
 	    <div class="ri_body">
 	    	<?php if($members):?>
 	    	<?php foreach ($members AS $_k => $_v):?>
-	        	<p><?php echo $_v['name'];?>-------仅剩<?php echo $_v['balance'];?>元</p>
+	        	<p><?php echo $_v['name'];?>-------仅剩<?php echo $_v['balance'];?>Ks</p>
 	        <?php endforeach;?>
 	        <?php else:?>
 	        	<p>暂时没有</p>

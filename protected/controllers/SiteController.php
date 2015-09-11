@@ -69,7 +69,9 @@ class SiteController extends FormerController
 	
 	public function filtercheckIsOnTime($filterChain)
 	{
-		if(!Yii::app()->check_time->isOnTime())
+		$shop_id = Yii::app()->request->getParam('shop_id');
+		
+	    if(!Yii::app()->check_time->isShopOntime($shop_id))
 		{
 			throw new CHttpException(404,Yii::t('yii','不在订餐时间内'));
 		}
@@ -105,7 +107,7 @@ class SiteController extends FormerController
 		$notice = Announcement::model()->findAll(array('order' => 'create_time DESC','condition' => 'status=:status','params'=>array(':status'=>2)));
 		$notice = CJSON::decode(CJSON::encode($notice));
 		
-		//查询出会员账户余额小于10元的用户
+		//查询出会员账户余额小于10Ks的用户
 		$members = Members::model()->findAll('balance < :balance',array(':balance' => 20));
 		$members = CJSON::decode(CJSON::encode($members));
 
@@ -125,23 +127,59 @@ class SiteController extends FormerController
 		$shop_id = Yii::app()->request->getParam('shop_id');
 		if(!isset($shop_id))
 		{
-			throw new CHttpException(404,Yii::t('yii','请选择一家餐厅'));
+			throw new CHttpException(404,Yii::t('yii','请选择就餐类别'));
+		}
+		
+	    $resident_flag = Yii::app()->request->getParam('resident_flag');
+		if(isset($resident_flag))
+		{
+			throw new CHttpException(404,Yii::t('yii','常驻员工每天每餐仅每次仅允许订购一份！！'));
 		}
 		
 		//查询出改商店的一些详细信息
 		$shopData = Shops::model()->findByPk($shop_id);
 		if(!$shopData)
 		{
-			throw new CHttpException(404,Yii::t('yii','您选择的这家餐厅不存在'));
+			throw new CHttpException(404,Yii::t('yii','您选择的餐类不存在！'));
 		}
 		$shopData = CJSON::decode(CJSON::encode($shopData));
 		
 		//判断改商家有没有下市场
 		if(intval($shopData['status']) != 2)
 		{
-		    throw new CHttpException(404,Yii::t('yii','您选择的这家餐厅不存在或者已经倒闭了！'));
+		    throw new CHttpException(404,Yii::t('yii','您选择的餐类已经下市！'));
 		}
 
+		
+		//根据订单历史纪录查询当天是否已经存在同样的中餐、晚餐订单记录
+		//店铺->中餐、晚餐
+		//菜单->地点
+		//LCF
+		$member_id = Yii::app()->user->member_userinfo['id'];
+		$criteria = new CDbCriteria;
+		$today = strtotime(date('Y-m-d'));
+		$criteria->order = 't.create_time DESC';
+		$criteria->select = '*';
+		$criteria->condition = 'food_user_id=:food_user_id AND shop_id = :shop_id AND create_time > :create_time AND status < :status';
+		$criteria->params = array(
+		':food_user_id' => $member_id,
+		':shop_id' => $shop_id,
+		':create_time' => $today,
+		':status' => 3
+		);
+		
+		//查询结果
+		$todayOrderCount=FoodOrder::model()->count($criteria);
+		$memberInfo = Members::model()->find('id=:id',array(':id' => Yii::app()->user->member_userinfo['id']));
+		
+	    if($memberInfo->resident == 1 && $todayOrderCount >= 1)
+		{
+			throw new CHttpException(404,Yii::t('yii','你今天已经订过该餐了！！常驻员工每天每餐仅每次仅允许订购一份！！'));
+		}
+		
+		
+		
+		
 		//根据店铺id查询出该店铺的菜单
 		$menuData = Menus::model()->with('food_sort','image','shops')->findAll(array('condition' => 't.shop_id=:shop_id AND t.status=:status','params' => array(':shop_id' => $shop_id,':status' => 2)));
 		$data = array();
@@ -188,7 +226,7 @@ class SiteController extends FormerController
 				{
 					$message[$k]['replys'][$kk] = $vv->attributes;
 					$message[$k]['replys'][$kk]['create_time'] 	= date('Y-m-d H:i:s',$vv->create_time);
-					$message[$k]['replys'][$kk]['user_name'] 	= ($vv->user_id == -1)?'前台妹子说':$vv->members->name;
+					$message[$k]['replys'][$kk]['user_name'] 	= ($vv->user_id == -1)?'行政MM说':$vv->members->name;
 				}
 			}
 		}
@@ -204,6 +242,20 @@ class SiteController extends FormerController
 	//查看购物车
 	public function actionLookCart()
 	{
+	    $memberInfo = Members::model()->find('id=:id',array(':id' => Yii::app()->user->member_userinfo['id']));
+			
+		//如果是常驻员工且只订购了一份饭，则减免全部订购费
+		if ($memberInfo->resident==1 && $this->order['Count']==1)
+		{
+		    $this->order['Total'] = 0;
+		    
+		    foreach ($this->order['Items'] AS $k => $v)
+				{
+					$this->order['Items'][$k]['Price'] = 0;
+				    $this->order['Items'][$k]['smallTotal'] = $v['Count'] * $v['Price'];
+				}
+		}
+		
 		$this->render('lookcart',array('order' => $this->order));
 	}
 	
@@ -212,10 +264,24 @@ class SiteController extends FormerController
 	{
 		//确认订单之前查看用户余额够不够付
 		$memberInfo = Members::model()->find('id=:id',array(':id' => Yii::app()->user->member_userinfo['id']));
+		
+	    //如果常驻员工只定了一份饭，则将费用减免掉
+		if ($memberInfo->resident ==1 and $this->order['Count'] ==1)
+		{
+		    $this->order['Total'] = 0;
+		    
+		    foreach ($this->order['Items'] AS $k => $v)
+				{
+					$this->order['Items'][$k]['Price'] = 0;
+				    $this->order['Items'][$k]['smallTotal'] = $v['Count'] * $v['Price'];
+				}
+		}
+		
 		if($memberInfo->balance < $this->order['Total'] && !in_array(Yii::app()->user->member_userinfo['id'], Yii::app()->params['allow_user_id'])) 
 		{
 			throw new CHttpException(404,Yii::t('yii','亲！您的账户余额不足，不能下单哦，到行政MM交钱吧！'));
 		}
+				
 		
 		//构建数据
 		$foodOrder = new FoodOrder();
@@ -381,7 +447,7 @@ class SiteController extends FormerController
 		//登录成功
 		if($identity->errorCode===MemberIdentity::ERROR_NONE)
 		{
-			$duration = 3600*24*30;//保持一个月
+			$duration = 3600*24;//保持一个月
 			Yii::app()->user->login($identity,$duration);
 			$this->errorOutput(array('error' => 4));
 		}
@@ -624,7 +690,7 @@ class SiteController extends FormerController
 		
 		if(!$shop_id)
 		{
-			$this->errorOutput(array('errorCode' => 4,'errorText' => '没有商店id'));
+			$this->errorOutput(array('errorCode' => 4,'errorText' => '没有餐类id'));
 		}
 		
 		//验证验证码是否正确

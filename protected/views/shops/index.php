@@ -1,7 +1,7 @@
 <div class="content-box">
       <!-- Start Content Box -->
       <div class="content-box-header">
-        <h3>商家信息</h3>
+        <h3>餐类管理</h3>
         <ul class="content-box-tabs">
           <li><a href="#tab1" class="default-tab">列表</a></li>
         </ul>
@@ -16,11 +16,11 @@
                 <th>
                   <input class="check-all" type="checkbox" />
                 </th>
-                <th>店招</th>
-                <th>店名</th>
+                <th>餐类Logo</th>
+                <th>餐类名称</th>
                 <th>地址</th>
-                <th>联系人</th>
-                <th>电话</th>
+                <th>起始时间</th>
+                <th>结束时间</th>
                 <th>状态</th>
                 <th>操作</th>
               </tr>
@@ -57,8 +57,8 @@
 		                <td><img src="<?php echo $v['logo'];?>" width="40" height="30" /></td>
 		                <td><?php echo $v['name'];?></td>
 		                <td><?php echo $v['address'];?></td>
-		                <td><?php echo $v['linkman'];?></td>
-		                <td><?php echo $v['tel'];?></td>
+		                <td><?php echo $v['starttime'];?></td>
+		                <td><?php echo $v['endtime'];?></td>
 		                <td  _url="<?php echo Yii::app()->createUrl('shops/audit',array('id' => $v['id'])); ?>"  class="status_row" style="cursor:pointer;color:<?php echo $v['status_color'];?>"><?php echo $v['status_text'];?></td>
 		                <td>
 		                  <!-- Icons -->

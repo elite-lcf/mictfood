@@ -34,7 +34,7 @@
                                 <?php else:?>
                                 <?php foreach ($data AS $k => $v):?>
                                 <p class="not_title">
-                                <span><?php echo $v['user_name'];?>--------<span style="color:<?php if($v['type']):?>blue;<?php else:?>red;<?php endif;?>"><?php echo $v['type_text'];?></span>--------<?php echo $v['money'];?>元--------<?php echo $v['create_time'];?></span>
+                                <span><?php echo $v['user_name'];?>--------<span style="color:<?php if($v['type']):?>blue;<?php else:?>red;<?php endif;?>"><?php echo $v['type_text'];?></span>--------<?php echo $v['money'];?>Ks--------<?php echo $v['create_time'];?></span>
                                 </p>
                                 <?php endforeach;?>
                                 <?php endif;?>

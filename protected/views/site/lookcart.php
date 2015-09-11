@@ -49,13 +49,21 @@ $(function(){
 	<tfoot>
 		<tr>
 			<td colspan="4">
-			<p class="resident_flag"><em/>常驻员工扣除：<em><?php 
-			if ($order['Count']>1)
-			    {
-			        echo "<script>alert('常驻员工每餐只允许订购一份！');</script>";
-			    }
-			    
+			<p class="resident_flag"><em/>扣费类型：<em><?php 
+			
 			$memberInfo = Members::model()->find('id=:id',array(':id' => Yii::app()->user->member_userinfo['id']));
+			
+			//常驻员工单次订购不允许超过1份
+			if ($memberInfo->resident==1 && $order['Count']>1)
+			    {
+			        echo '<script>
+			        alert("常驻员工每餐只允许订购一份！请返回购物车修改！");
+			        </script>';
+			        
+			        $this->redirect(Yii::app()->createUrl('site/lookmenu',array('shop_id' => $order['shop_id'],'resident_flag' => yes)));
+			    }
+						    
+			//$memberInfo = Members::model()->find('id=:id',array(':id' => Yii::app()->user->member_userinfo['id']));
 			echo Yii::app()->params['resident_flag'][$memberInfo->resident];
 
 
@@ -77,5 +85,5 @@ $(function(){
 </table>
 <input type="button" id="sendOrder" value="确认下单"
 	style="margin-top: 6px;"> <input type="hidden" id="goToOrderUrl"
-	value="<?php echo Yii::app()->createUrl('site/confirmorder');?>" /></div>
+	value="<?php echo Yii::app()->createUrl('site/confirmorder',array('shop_id' => $order['shop_id']));?>" /></div>
 </div>
