@@ -28,7 +28,7 @@ $(function(){
 <table cellpadding="0" cellspacing="0">
 	<thead>
 		<tr>
-			<td class="col1">美食筐</td>
+			<td class="col1">美食清单</td>
 			<td class="col2">单价</td>
 			<td class="col3">数量</td>
 			<td class="col4">小计</td>
@@ -50,19 +50,14 @@ $(function(){
 		<tr>
 			<td colspan="4">
 			<p class="resident_flag"><em/>常驻员工扣除：<em><?php 
-			$memberInfo = Members::model()->find('id=:id',array(':id' => Yii::app()->user->member_userinfo['id']));
-			if($memberInfo->resident == '1')
-			{
-			    if ($order['Count']>1)
+			if ($order['Count']>1)
 			    {
 			        echo "<script>alert('常驻员工每餐只允许订购一份！');</script>";
 			    }
-			    echo "是" ;
-			}
-			else
-			{
-		        echo "否" ;
-			}
+			    
+			$memberInfo = Members::model()->find('id=:id',array(':id' => Yii::app()->user->member_userinfo['id']));
+			echo Yii::app()->params['resident_flag'][$memberInfo->resident];
+
 
 			/*if($memberInfo->balance < $this->order['Total'] && !in_array(Yii::app()->user->member_userinfo['id'], Yii::app()->params['allow_user_id']))
 			 {

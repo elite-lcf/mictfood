@@ -36,6 +36,9 @@ var CartHelper = function () {
             cart.Total -= (((cart.Items[index].Count * 100) * (cart.Items[index].Price * 100)) / 10000);
             cart.Items[index].Count = count;
             cart.Total += (((cart.Items[index].Count * 100) * (cart.Items[index].Price * 100)) / 10000);
+            //LCF:同一菜品多份时应该更新总数量
+            cart.Count++;
+            //LCF:END
         } else {
             var item = new CartItem();
             item.Id = id;
@@ -54,6 +57,9 @@ var CartHelper = function () {
         var cart = this.Read();
         var index = this.Find(id);
         cart.Total -= (((cart.Items[index].Count * 100) * (cart.Items[index].Price * 100)) / 10000);
+        //LCF:根据传入的值与当前值之差，更新总购物车数量
+        cart.Count += (count - cart.Items[index].Count);
+        //LCF:END
         cart.Items[index].Count = count;
         cart.Total += (((cart.Items[index].Count * 100) * (cart.Items[index].Price * 100)) / 10000);
         this.Save(cart);

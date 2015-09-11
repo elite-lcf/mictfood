@@ -37,10 +37,13 @@
                                 <tbody>
 	                                <tr>
 	                                    <td>
-	                                        <b>我的邮箱</b>
+	                                        <b>我的身份</b>
 	                                    </td>
 	                                    <td>
-	                                        <?php echo $member['email'];?>
+	                                        <?php 
+	                                        //echo $member['resident'];
+	                                        echo Yii::app()->params['resident_flag'][$member['resident']];
+	                                        ?>
 	                                    </td>
 	                                    <td>
 	                                        <b>我的名称：</b>
@@ -68,11 +71,12 @@
 	                                        <em class="fl">￥<?php echo $member['balance'];?></em>
 	                                    </td>
 	                                    <td>
-	                                        <b>绑定手机：</b>
+	                                        <b>我的状态：</b>
 	                                    </td>
 	                                    <td>
-	                                        <span id="bindPhone" class="fl">未绑定手机</span>
-	                                        <!-- <a class="fr click_bind" href="javascript:;">去绑定</a> -->
+	                                        <?php 
+	                                        echo Yii::app()->params['member_status'][$member['status']];
+	                                        ?>
 	                                    </td>
 	                                </tr>
                             </tbody>

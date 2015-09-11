@@ -124,6 +124,10 @@ return array(
 			3 => 'green',
 			4 => '#EA0CF3',
 		),
+		'resident_flag' => array(
+			0 => '自费',
+			1 => '常驻',
+		),
 		//会员充值金额配置
 		'member_recharge' => array(
 			1 => 6000,
@@ -183,7 +187,7 @@ return array(
 			3 => '用户取消订单',
 			4 => '前台取消订单',
 		),
-		'homeIndexPic' => 'home.jpg',
+		'homeIndexPic' => 'danta.jpg',
 		'material_path' => 'application.uploads',
 		'img_url' => 'http://localhost/dinner/protected/uploads/',
 		'pagesize' => 10,//配置后台分页显示的个数
