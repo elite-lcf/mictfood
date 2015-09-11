@@ -1,19 +1,18 @@
-订餐系统
-=============
+MICT订餐系统
 
-一、使用方法
-------------
+1. 默认订餐（未来订餐/）
+2. 常驻FREE不扣款（注册的时候区分身份）
+3. 考虑订餐产生负数（信用度最多3餐）
+4.当前时间大于 10点，不能定中餐， 大于4点不能定晚餐
+5. 订餐地点
+6. export的时候分开中餐、晚餐
+7。 每道菜一定要一个可订购时间
+8.充值要手写功能
 
-### 1.将项目解压之后放到本地web根目录       
-### 2.打开浏览器，访问：http://localhost/dinner/yii/requirements/
-    这步目的主要是检测本地环境达不到要求，由于该系统是用yii框架写的，yii内置一个检测环境的文件
-### 3.导入sql文件
-    sql文件的位置在webroot/dinner/protected/data/dinner.sql
-### 4.配置config
-    打开webroot/dinner/protected/config/main.php 配置自己数据库名称、用户名、密码
-### 5.修改目录权限
-    由于有些目录会动态的写文件，例如assets、runtime目录，所以为了简便，直接将dinner/目录权限修改成777
-### 6.完成以上的步骤，就可以访问了
-    前台的地址：http://localhost/dinner/index.php
-    后台的地址：http://localhost/dinner/index.php?r=user
-    后台的默认用户名与密码：admin  admin
+
+配置点：
+1. 配置商家为不同
+
+
+
+引用自Dinner项目https://github.com/zhoujiafei/dinner
