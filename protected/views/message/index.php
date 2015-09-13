@@ -63,7 +63,7 @@
                 <th>
                   <input class="check-all" type="checkbox" />
                 </th>
-                <th>店名</th>
+                <th>餐类</th>
                 <th>留言人</th>
                 <th>留言内容</th>
                 <th>留言时间</th>

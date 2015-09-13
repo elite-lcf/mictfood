@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>订餐系统</title>
+<title>MICT订餐系统</title>
 <?php
 /*加载js*/
 Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . "/assets/js/jquery-1.3.2.min.js");
@@ -24,8 +24,8 @@ Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl . "/assets/css/inv
   <div id="sidebar">
     <div id="sidebar-wrapper">
       <!-- Sidebar with logo and menu -->
-      <h1 id="sidebar-title"><a href="#">订餐系统</a></h1>
-      <a href="#"><img id="logo" src="<?php echo Yii::app()->baseUrl;?>/assets/images/logo.png" alt="订餐系统" /></a>
+      <h1 id="sidebar-title"><a href="#">MICT订餐系统</a></h1>
+      <a href="#"><img id="logo" src="<?php echo Yii::app()->baseUrl;?>/assets/images/logo.png" alt="MICT订餐系统" /></a>
       <!-- Sidebar Profile links -->
       <div id="profile-links"> 你好, <a href="#" title="Edit your profile"><?php echo Yii::app()->user->admin_userinfo['username'];?></a> | <a href="<?php echo Yii::app()->createUrl('user/logout'); ?>" title="退出">退出</a> </div>
       	<?php $this->widget('application.widgets.CMenuList'); ?>
@@ -33,7 +33,7 @@ Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl . "/assets/css/inv
   </div>
 <div id="main-content">
 <!-- Page Head -->
-<h2>欢迎使用订餐系统</h2>
+<h2>欢迎使用MICT订餐系统</h2>
 <p id="page-intro"><a href="<?php echo Yii::app()->createUrl('site');?>" target="_blank">前台首页</a></p>
 <!-- End .shortcut-buttons-set -->
 	<div class="clear"></div>

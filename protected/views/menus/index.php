@@ -17,7 +17,7 @@ $(function(){
 <div class="content-box">
       <!-- Start Content Box -->
       <div class="content-box-header">
-        <h3>菜单信息</h3>
+        <h3>送餐地点信息</h3>
         <ul class="content-box-tabs">
           <li><a href="#tab1" class="default-tab">列表</a></li>
           <a href="<?php echo Yii::app()->createUrl('menus/form');?>" class="button" style="float:left;margin-left:10px;">新增</a>
@@ -32,7 +32,7 @@ $(function(){
       		</div>
       		<div class="select-search">
       			<select id="search_shop">
-      				<option value="">所有商家</option>
+      				<option value="">所有餐类</option>
       				<?php if(isset($shops) && !empty($shops)):?>
       					<?php foreach ($shops AS $_k => $_v):?>
       						<?php 
@@ -60,8 +60,8 @@ $(function(){
                   <input class="check-all" type="checkbox" />
                 </th>
                 <th>图片</th>
-                <th>菜名</th>
-                <th>所属商家</th>
+                <th>送餐地点</th>
+                <th>所属餐类</th>
                 <th>状态</th>
                 <th>价格</th>
                 <th>创建时间</th>

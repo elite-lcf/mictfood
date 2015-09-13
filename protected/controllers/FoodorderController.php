@@ -15,7 +15,7 @@ class FoodOrderController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','form'),
+				'actions'=>array('index','form','orderview'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -216,7 +216,103 @@ class FoodOrderController extends Controller
 		}
 	}
 	
+    //LCF:订单前台展示
+	//如果有查询时间输入
+	public function actionOrderView()
+	{
+		//创建查询条件
+		$criteria = new CDbCriteria();
+		$criteria->order = 't.create_time DESC';//按时间倒序排
+		
+		//如果没有指定日期，默认查询当天的订单统计
+		$date = Yii::app()->request->getParam('date');
+		if($date)
+		{
+			$today = strtotime(date($date));
+			if(!$today)
+			{
+				throw new CHttpException(404,'日期格式设置有误');
+			}
+			else if($today > time()) 
+			{
+				throw new CHttpException(404,'设置的日期不能超过今天');
+			}
+			$tomorrow = $today + 24*3600;
+		}
+		else 
+		{
+			$today = strtotime(date('Y-m-d'));
+			$tomorrow = strtotime(date('Y-m-d',time()+24*3600));
+		}
+		
+		$criteria->condition = '(t.status = :status1 OR t.status = :status2) AND t.create_time > :today AND t.create_time < :tomorrow';
+		$criteria->params = array(':status1' => 1,':status2' => 2,':today' => $today,':tomorrow' => $tomorrow);
+		$model = FoodOrder::model()->with('shops','members')->findAll($criteria);
+		$data = array();
+		$_total_price = 0;
+		$tongji = array();
+		
+		//处理查询得到的每一条订单
+		foreach($model AS $k => $v)
+		{
+			$_total_price += $v->total_price;
+			$data[$k] = $v->attributes;
+			$data[$k]['product_info'] = unserialize($v->product_info);
+			$data[$k]['shop_name'] = $v->shops->name;
+			$data[$k]['user_name'] = $v->members->name;
+			$data[$k]['create_time'] = date('Y-m-d H:i:s',$v->create_time);
+			$data[$k]['status_text'] = Yii::app()->params['order_status'][$v->status];
+			$data[$k]['status_color'] = Yii::app()->params['status_color'][$v->status];	
+			//统计
+			$tongji[$v->shop_id]['name'] = $v->shops->name;
+			$tongji[$v->shop_id]['product'][] = unserialize($v->product_info);
+		}
+		
+		//统计结果
+		$result = array();
+		foreach ($tongji AS $k => $v)
+		{
+			$result[$k]['name'] = $v['name'];
+			$shop_total_price = 0;
+			foreach($v['product'] AS $_k => $_v)
+			{
+				foreach ($_v AS $kk => $vv)
+				{
+					$shop_total_price += $vv['smallTotal'];
+					$result[$k]['product'][$vv['Id']]['name'] = $vv['Name'];
+					if($result[$k]['product'][$vv['Id']]['count'])
+					{
+						$result[$k]['product'][$vv['Id']]['count'] += $vv['Count'];
+					}
+					else 
+					{
+						$result[$k]['product'][$vv['Id']]['count'] = $vv['Count'];
+					}
+					
+					if($result[$k]['product'][$vv['Id']]['smallTotal'])
+					{
+						$result[$k]['product'][$vv['Id']]['smallTotal'] += $vv['smallTotal'];
+					}
+					else 
+					{
+						$result[$k]['product'][$vv['Id']]['smallTotal'] = $vv['smallTotal'];
+					}
+				}
+			}
+			$result[$k]['shop_total_price'] = $shop_total_price;
+		}
+		
+		//输出到前端
+		$this->render('orderView', array(
+			'data' 	=> $data,
+			'statistics' => $result,
+			'total_price' => $_total_price,
+			'date' => $date,
+		));
+	}
+	
 	//今日订单统计
+	//如果有查询时间输入
 	public function actionTodayOrder()
 	{
 		//创建查询条件
@@ -250,6 +346,8 @@ class FoodOrderController extends Controller
 		$data = array();
 		$_total_price = 0;
 		$tongji = array();
+		
+		//处理查询得到的每一条订单
 		foreach($model AS $k => $v)
 		{
 			$_total_price += $v->total_price;
@@ -261,7 +359,7 @@ class FoodOrderController extends Controller
 			$data[$k]['status_text'] = Yii::app()->params['order_status'][$v->status];
 			$data[$k]['status_color'] = Yii::app()->params['status_color'][$v->status];	
 			//统计
-			$tongji[$v->shop_id]['name'] = $v->shops->name . '(' . $v->shops->tel . ')';
+			$tongji[$v->shop_id]['name'] = $v->shops->name;
 			$tongji[$v->shop_id]['product'][] = unserialize($v->product_info);
 		}
 		

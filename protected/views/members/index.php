@@ -6,6 +6,12 @@ $(function(){
 		window.location.href = url + '&k=' + val;
 	})
 
+	$('#doCreateNew').click(function(){
+			var member_id = $(this).attr('_id');
+			var url = "<?php echo Yii::app()->createUrl('site/register');?>";
+			window.location.href = url;
+	})
+	
 	$('.resetpass_btn').click(function(){
 		if(confirm('您确定要重置此人的密吗?'))
 		{
@@ -44,6 +50,7 @@ $(function(){
       <div class="content-box-content">
 	      <input type="text" name="k" id="search_name"  value="<?php echo Yii::app()->request->getParam('k');?>" />
 	      <input type="button" value="查找" class="button" id="doSearch" />
+	      <input type="button" value="新建用户" class="button" id="doCreateNew" />
 	      <div class="tab-content default-tab" id="tab1">
           <table>
             <thead>

@@ -84,7 +84,7 @@ $(function(){
 	                    <!--end of order_simp-->
 	                    <div class="order_detail clearfix">
 	                        <div class="l fl">
-	                            <p><b>您的地址：</b>Huawei MICT/New Office</p>
+	                            <p><b>您的订餐：</b>Huawei Software (Yangon) </p>
 	                            
 	                        </div>
 	                        <ul class="r fr">

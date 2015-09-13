@@ -7,7 +7,7 @@
 // CWebApplication properties can be configured here.
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
-	'name'=>'订餐系统',
+	'name'=>'MICT订餐系统',
     'timeZone'=>'Asia/Rangoon',
 	// preloading 'log' component
 	'preload'=>array('log'),
@@ -210,7 +210,7 @@ return array(
 						        'link'          => '#',    
 						        'child'  		=>  array(
 						    								array(
-														        'zh_name'       => '地点管理',
+														        'zh_name'       => '送餐地点管理',
 														        'en_name'       => 'Locations_manger',
 														        'link'          => 'menus',  
 						    								), 
@@ -258,11 +258,12 @@ return array(
 														        'en_name'       => 'material_manger',
 														        'link'          => 'material',  
 						    								), 
+						    								/*
 						    								array(
 														        'zh_name'       => '点餐时间',
 														        'en_name'       => 'dinnertime_manger',
 														        'link'          => 'timeconfig',  
-						    								), 
+						    								), */
 												        ),            
 						    ),
 						),

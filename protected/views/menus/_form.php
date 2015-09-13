@@ -15,7 +15,7 @@ else
 <div class="content-box">
       <!-- Start Content Box -->
       <div class="content-box-header">
-        <h3><?php echo $op_text;?>菜单</h3>
+        <h3><?php echo $op_text;?>送餐地点</h3>
         <ul class="content-box-tabs">
           <li><a href="#tab1" class="default-tab">表单</a></li>
         </ul>
@@ -26,7 +26,7 @@ else
           <form action="<?php echo $_action;?>" method="post" enctype="multipart/form-data">
             <fieldset>
             <p>
-              <label>菜名</label>
+              <label>送餐地点</label>
               <input class="text-input small-input" type="text"  name="Menus[name]" value="<?php echo CHtml::encode($data['name']); ?>"/>
             </p>
             
@@ -46,9 +46,9 @@ else
             </p>
             -->
             <p>
-              <label>商家</label>
+              <label>餐类</label>
               <select name="Menus[shop_id]" class="small-input">
-              	<option value="0" >全部商家</option>
+              	<option value="0" >全部餐类</option>
                 <?php foreach($shops AS $_key => $_value):?>
                 <option value="<?php echo $_value['id'];?>" <?php if($data['shop_id'] == $_value['id']): ?> selected <?php endif;?>><?php echo $_value['name'];?></option>
                 <?php endforeach;?>

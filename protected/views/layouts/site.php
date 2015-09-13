@@ -29,10 +29,18 @@ Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/assets/js/f
         </a>
         <ul class="top_NewNava">
             <li class="active"><a href="<?php echo Yii::app()->createUrl('site')?>">订餐好难啊~</a></li>
+            <li><a href="<?php echo Yii::app()->createUrl('site/index') ?>"> <?php echo date('Y-m-d H:i:s');?> </a></li>
             <!-- <li><a href="#">我要吐槽</a></li> -->
         </ul>
         <div id="top_quickmenu" class="quick_menu">
             <dl>
+                
+                <!-- 
+                <dd>
+                    <a id="top_orderViewLink" class="MyOrderLink" href="<?php echo Yii::app()->createUrl('site/orderView');?>">今天订单清单</a>
+                </dd>
+                -->
+                
                 <dd>
                 	<?php if(isset(Yii::app()->user->member_userinfo)):?>
                     <a id="top_MyOrderLink" class="MyOrderLink" href="<?php echo Yii::app()->createUrl('site/membercenter');?>">用户中心</a>
@@ -53,8 +61,7 @@ Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/assets/js/f
                         <a href="<?php echo Yii::app()->createUrl('site/membercenter');?>" class="log_btn"><?php echo Yii::app()->user->member_userinfo['username'];?></a> <span>|</span>
                         <a href="<?php echo Yii::app()->createUrl('site/logout');?>" class="log_btn regist">退出</a>
                         <?php else: ?>
-                        <a href="<?php echo Yii::app()->createUrl('site/login');?>" class="log_btn">登录</a> <span>|</span>
-                        <a href="<?php echo Yii::app()->createUrl('site/register');?>" class="log_btn regist">注册</a>
+                        <a href="<?php echo Yii::app()->createUrl('site/login');?>" class="log_btn">登录</a> <span>.</span>
                         <?php endif;?>
                     </div>
                 </dd>

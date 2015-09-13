@@ -292,7 +292,7 @@ $(function(){
 })
 </script>
 <div id="school">
-   <em>当前餐厅：<?php echo $shop['name'];?></em>
+   <em>当前餐类：<?php echo $shop['name'];?></em>
    <input type="hidden" id="shop_id" value="<?php echo $shop['id'];?>" />
    <input type="hidden" id="shop_name" value="<?php echo $shop['name'];?>" />
    <input type="hidden" id="show_msg" value="<?php echo Yii::app()->request->getParam('show_msg');?>" />
@@ -304,7 +304,7 @@ $(function(){
     <div id="left" class="shadow s_menu">          
 	    <div id="s_tab">
 	        <a href="#" class="active" _id="scrollPager" id="scrollPagerTab">看菜单</a>
-	        <a href="#" _id="tab_comment" id="tab_comment_tab">给餐厅留言</a>
+	        <a href="#" _id="tab_comment" id="tab_comment_tab">评价此餐类</a>
 	    </div>
 	    <div id="scrollPager">
 	                <div class="foodList clearfix">
@@ -416,9 +416,9 @@ $(function(){
 	<div id="right">
         <div class="right_item shadow" style="margin-top: 0px;">
              <p class="shop-info">
-                  结束时间：<?php echo $shop['endtime'];?><br>
                   起始时间：<?php echo $shop['starttime'];?><br>
-                  餐厅地址：<?php echo $shop['address'];?>
+                  结束时间：<?php echo $shop['endtime'];?><br>
+                  
              </p>
         </div>
                   

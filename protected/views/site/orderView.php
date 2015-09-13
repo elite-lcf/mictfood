@@ -1,27 +1,26 @@
 <div class="content-box">
       <!-- Start Content Box -->
+      <!-- 用户界面展示当天所有订餐 -->
       <div class="content-box-header">
-        <h3><?php if($date):?><?php echo $date;?><?php else:?>今日<?php endif;?> 订单统计</h3>
-        <ul class="content-box-tabs">
-          <li><a href="#tab1" class="default-tab">列表</a></li>
-        </ul>
+        <br>
+        <h3 align="center" style="font-weight:bold;"><?php if($date):?><?php echo $date;?><?php else:?>今日<?php endif;?> 订单信息</h3>
+        <br>
         <div class="clear"></div>
       </div>
       <!-- End .content-box-header -->
+      <h3></h3>
+      <H3>订单详细记录</H3>
       <div class="content-box-content">
         <div class="tab-content default-tab" id="tab1">
-          <table>
+          <table width=800px>
             <thead>
-              <tr>
-                <th>
-                  <input class="check-all" type="checkbox" />
-                </th>
-                <th>餐类</th>
-                <th>用户名</th>
-                <th>订单状态</th>
-                <th>订餐内容</th>
-                <th>总价</th>
-                <th>下单时间</th>
+              <tr style="font-weight:bold;">
+                <td>餐类</td>
+                <td>用户名</td>
+                <td>订单状态</td>
+                <td>订餐内容</td>
+                <td>总价</td>
+                <td>下单时间</td>
               </tr>
             </thead>
             <tfoot>
@@ -35,16 +34,15 @@
                <?php if(isset($data)):?>
                		<?php foreach ($data AS $k => $v):?>
 		              <tr>
-		                <td>
-		                  <input type="checkbox" name="infolist[]" value="<?php echo $v['id'];?>" />
-		                </td>
 		                <td><?php echo $v['shop_name'];?></td>
 		                <td><?php echo $v['user_name'];?></td>
 		                <td style="cursor:pointer;color:<?php echo $v['status_color'];?>"><?php echo $v['status_text'];?></td>
 		                <td>
-		                	<?php foreach($v['product_info'] AS $_k => $_v):?>
+		                	
+               		        <?php foreach($v['product_info'] AS $_k => $_v):?>
 							<p><?php echo $_v['Name'];?> : <?php echo $_v['Price'];?>Ks x <?php echo $_v['Count'];?>------<?php echo $_v['smallTotal'];?>Ks</p>		                  
 							<?php endforeach;?>
+							----------------------------------------------------------
 		                </td>
 		                 <td>$ <?php echo $v['total_price'];?></td>
 		                 <td><?php echo $v['create_time'];?></td>
@@ -56,28 +54,39 @@
         </div>
       </div>
       
-      <span style="display:block;height:30px;font-size:20px;text-align:center;">统计结果如下：</span>
+       <H3>明细统计如下：</H3>
       
       <div class="content-box-content">
-      	<table>
+      	<table width=800px>
       		<thead>
-              <tr>
-                <th>餐类</th>
-                <th>详情</th>
-                <th>小计</th>
+              <tr style="font-weight:bold;">
+                <td >餐类</td>
+                <td>地点</td>
+                <td>订餐清单</td>
               </tr>
             </thead>
             <tbody>
-      		<?php foreach($statistics AS $k => $v):?>
+      		<?php foreach($orderViewList AS $k => $v):?>
       		<tr>
-      			<td><?php echo $v['name'];?></td>
-      			<td>
-      				<?php foreach ($v['product'] AS $_k => $_v):?>
-      				<p><?php echo $_v['name'];?> x <?php echo $_v['count'];?>------小计：<?php echo $_v['smallTotal'];?>Ks</p>
-      				<?php endforeach;?>
+      			<td><?php echo $v['foodClass'];?><br>
+      			    <?php echo '(共'.$v['totalCount'].'份)';?>
       			</td>
       			<td>
-      			<?php echo $v['shop_total_price'];?>Ks
+      				<?php foreach ($v['locations'] AS $_k => $_v):?>
+      				<p>
+      				
+      				<?php echo $_v['locationName'].' 共  '.$_v['count'].' 份';?></p>
+      				<?php endforeach;?>
+				</td>
+				<td>      				
+      				<?php foreach ($v['locations'] AS $_k => $_v):?>
+      				<?php foreach ($_v['orderItems'] AS $order_k => $order_v):?>
+      				----&nbsp;&nbsp;&nbsp;&nbsp; <?php echo $order_v['userName'].' x '.$order_v['count'];?> 份<br>
+      				
+      				<?php endforeach;?>
+				
+      				<?php endforeach;?>
+      				********************以上********************
       			</td>
       		</tr>
       		<?php endforeach;?>
@@ -85,8 +94,7 @@
       		<tfoot>
       			<tr>
       				<td>总计：</td>
-      				<td></td>
-	      			<td><?php echo $total_price;?>Ks</td>
+	      			<td>共<?php echo $foodTotalCount;?> 份</td>
       			</tr>
       		</tfoot>
       	</table>

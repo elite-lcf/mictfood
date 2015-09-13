@@ -70,7 +70,7 @@ class Error
 			self::ERR_NO_MSGID 				=> '没有留言ID',
 			self::ERR_NO_REPLY_CONTENT 		=> '没有回复内容',
 			self::ERR_ORDER_DATA_WRONG 		=> '订单数据有误',
-			self::ERR_MENU_NOT_SAME_SHOP 	=> '您提交的订单中的菜不属于同一家餐厅',
+			self::ERR_MENU_NOT_SAME_SHOP 	=> '您提交的订单中的菜不属于同一餐类',
 			self::ERR_BALANCE_NOT_ENOUGH 	=> '余额不足',
 			self::ERR_NOT_IN_TIME 			=> '不在订餐时间内',			
 			self::ERR_USERNAME_TOO_LONG 	=> '用户名过长',	

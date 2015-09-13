@@ -53,11 +53,13 @@ $(function(){
                     </li>
                     <li class="login_btn">
                         <input type="submit" id="LoginIn" value="登录" >
-                        <p>
-                            <a href="#">忘记密码？</a></p>
                     </li>
                 </ul>
                 <div class="member">
-                    <span>还没有MICT帐号？</span><a href="<?php echo Yii::app()->createUrl('site/register')?>">注册</a>
+                    <span>还没有MICT帐号？</span>
+                    <span>请联系MICT项目行政秘书为您建立帐号！！</span>
+                    <span>方便MICT团队高效订餐！</span>
+                    <span>丰富MICT人民的沟通与生活！</span>
+                    <span>MICT帐号，你值得拥有！</span>
                 </div>
 </div>

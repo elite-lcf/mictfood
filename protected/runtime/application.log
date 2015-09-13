@@ -1403,3 +1403,643 @@ Stack trace:
 REQUEST_URI=/mictfood/index.php?r=site/lookmenu&shop_id=2
 HTTP_REFERER=http://localhost/mictfood/index.php?r=site/index
 ---
+2015/09/12 11:37:06 [error] [exception.CHttpException.404] exception 'CHttpException' with message '常驻员工每天每餐仅每次仅允许订购一份！！' in D:\wamp\www\mictfood\protected\controllers\SiteController.php:136
+Stack trace:
+#0 D:\wamp\www\mictfood\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionLookMenu()
+#1 D:\wamp\www\mictfood\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#2 D:\wamp\www\mictfood\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#3 D:\wamp\www\mictfood\protected\controllers\SiteController.php(78): CFilterChain->run()
+#4 D:\wamp\www\mictfood\yii\framework\web\filters\CInlineFilter.php(58): SiteController->filtercheckIsOnTime(Object(CFilterChain))
+#5 D:\wamp\www\mictfood\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 D:\wamp\www\mictfood\yii\framework\web\CController.php(291): CFilterChain->run()
+#7 D:\wamp\www\mictfood\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 D:\wamp\www\mictfood\yii\framework\web\CWebApplication.php(282): CController->run('lookmenu')
+#9 D:\wamp\www\mictfood\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/lookmenu')
+#10 D:\wamp\www\mictfood\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#11 D:\wamp\www\mictfood\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/mictfood/index.php?r=site/lookmenu&shop_id=1&resident_flag=yes
+HTTP_REFERER=http://localhost/mictfood/index.php?r=site/lookmenu&shop_id=1
+---
+2015/09/12 11:56:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message '你今天已经订过该餐了！！常驻员工每天每餐仅每次仅允许订购一份！！' in D:\wamp\www\mictfood\protected\controllers\SiteController.php:177
+Stack trace:
+#0 D:\wamp\www\mictfood\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionLookMenu()
+#1 D:\wamp\www\mictfood\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#2 D:\wamp\www\mictfood\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#3 D:\wamp\www\mictfood\protected\controllers\SiteController.php(78): CFilterChain->run()
+#4 D:\wamp\www\mictfood\yii\framework\web\filters\CInlineFilter.php(58): SiteController->filtercheckIsOnTime(Object(CFilterChain))
+#5 D:\wamp\www\mictfood\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 D:\wamp\www\mictfood\yii\framework\web\CController.php(291): CFilterChain->run()
+#7 D:\wamp\www\mictfood\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 D:\wamp\www\mictfood\yii\framework\web\CWebApplication.php(282): CController->run('lookmenu')
+#9 D:\wamp\www\mictfood\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/lookmenu')
+#10 D:\wamp\www\mictfood\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#11 D:\wamp\www\mictfood\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/mictfood/index.php?r=site/lookmenu&shop_id=2
+HTTP_REFERER=http://localhost/mictfood/index.php?r=site/index
+---
+2015/09/12 12:01:48 [error] [exception.CException] exception 'CException' with message 'Property "Shops.tel" is not defined.' in D:\wamp\www\mictfood\yii\framework\base\CComponent.php:130
+Stack trace:
+#0 D:\wamp\www\mictfood\yii\framework\db\ar\CActiveRecord.php(145): CComponent->__get('tel')
+#1 D:\wamp\www\mictfood\protected\controllers\FoodorderController.php(264): CActiveRecord->__get('tel')
+#2 D:\wamp\www\mictfood\yii\framework\web\actions\CInlineAction.php(49): FoodOrderController->actionTodayOrder()
+#3 D:\wamp\www\mictfood\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 D:\wamp\www\mictfood\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 D:\wamp\www\mictfood\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#6 D:\wamp\www\mictfood\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#7 D:\wamp\www\mictfood\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#8 D:\wamp\www\mictfood\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#9 D:\wamp\www\mictfood\yii\framework\web\CController.php(291): CFilterChain->run()
+#10 D:\wamp\www\mictfood\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 D:\wamp\www\mictfood\yii\framework\web\CWebApplication.php(282): CController->run('todayorder')
+#12 D:\wamp\www\mictfood\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('foodorder/today...')
+#13 D:\wamp\www\mictfood\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#14 D:\wamp\www\mictfood\index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/mictfood/index.php?r=foodorder/todayorder
+HTTP_REFERER=http://localhost/mictfood/index.php?r=foodorder/index
+---
+2015/09/12 12:01:58 [error] [exception.CException] exception 'CException' with message 'Property "Shops.tel" is not defined.' in D:\wamp\www\mictfood\yii\framework\base\CComponent.php:130
+Stack trace:
+#0 D:\wamp\www\mictfood\yii\framework\db\ar\CActiveRecord.php(145): CComponent->__get('tel')
+#1 D:\wamp\www\mictfood\protected\controllers\FoodorderController.php(264): CActiveRecord->__get('tel')
+#2 D:\wamp\www\mictfood\yii\framework\web\actions\CInlineAction.php(49): FoodOrderController->actionTodayOrder()
+#3 D:\wamp\www\mictfood\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 D:\wamp\www\mictfood\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 D:\wamp\www\mictfood\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#6 D:\wamp\www\mictfood\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#7 D:\wamp\www\mictfood\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#8 D:\wamp\www\mictfood\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#9 D:\wamp\www\mictfood\yii\framework\web\CController.php(291): CFilterChain->run()
+#10 D:\wamp\www\mictfood\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 D:\wamp\www\mictfood\yii\framework\web\CWebApplication.php(282): CController->run('todayorder')
+#12 D:\wamp\www\mictfood\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('foodorder/today...')
+#13 D:\wamp\www\mictfood\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#14 D:\wamp\www\mictfood\index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/mictfood/index.php?r=foodorder/todayorder
+HTTP_REFERER=http://localhost/mictfood/index.php?r=foodorder/index
+---
+2015/09/12 12:12:30 [error] [exception.CHttpException.404] exception 'CHttpException' with message '不在订餐时间内' in D:\wamp\www\mictfood\protected\controllers\SiteController.php:76
+Stack trace:
+#0 D:\wamp\www\mictfood\yii\framework\web\filters\CInlineFilter.php(58): SiteController->filtercheckIsOnTime(Object(CFilterChain))
+#1 D:\wamp\www\mictfood\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#2 D:\wamp\www\mictfood\protected\controllers\SiteController.php(52): CFilterChain->run()
+#3 D:\wamp\www\mictfood\yii\framework\web\filters\CInlineFilter.php(58): SiteController->filtercheckIsCartEmpty(Object(CFilterChain))
+#4 D:\wamp\www\mictfood\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 D:\wamp\www\mictfood\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 D:\wamp\www\mictfood\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 D:\wamp\www\mictfood\yii\framework\web\CWebApplication.php(282): CController->run('lookcart')
+#8 D:\wamp\www\mictfood\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/lookcart')
+#9 D:\wamp\www\mictfood\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 D:\wamp\www\mictfood\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/mictfood/index.php?r=site/lookcart&shop_id=2
+HTTP_REFERER=http://localhost/mictfood/index.php?r=site/login
+---
+2015/09/12 12:12:43 [error] [exception.CHttpException.404] exception 'CHttpException' with message '不在订餐时间内' in D:\wamp\www\mictfood\protected\controllers\SiteController.php:76
+Stack trace:
+#0 D:\wamp\www\mictfood\yii\framework\web\filters\CInlineFilter.php(58): SiteController->filtercheckIsOnTime(Object(CFilterChain))
+#1 D:\wamp\www\mictfood\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#2 D:\wamp\www\mictfood\protected\controllers\SiteController.php(52): CFilterChain->run()
+#3 D:\wamp\www\mictfood\yii\framework\web\filters\CInlineFilter.php(58): SiteController->filtercheckIsCartEmpty(Object(CFilterChain))
+#4 D:\wamp\www\mictfood\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 D:\wamp\www\mictfood\protected\controllers\SiteController.php(25): CFilterChain->run()
+#6 D:\wamp\www\mictfood\yii\framework\web\filters\CInlineFilter.php(58): SiteController->filtercheckLoginControl(Object(CFilterChain))
+#7 D:\wamp\www\mictfood\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#8 D:\wamp\www\mictfood\yii\framework\web\CController.php(291): CFilterChain->run()
+#9 D:\wamp\www\mictfood\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 D:\wamp\www\mictfood\yii\framework\web\CWebApplication.php(282): CController->run('confirmorder')
+#11 D:\wamp\www\mictfood\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/confirmord...')
+#12 D:\wamp\www\mictfood\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#13 D:\wamp\www\mictfood\index.php(13): CApplication->run()
+#14 {main}
+REQUEST_URI=/mictfood/index.php?r=site/confirmorder&shop_id=2
+HTTP_REFERER=http://localhost/mictfood/index.php?r=site/lookcart&shop_id=1
+---
+2015/09/12 12:13:52 [error] [exception.CHttpException.404] exception 'CHttpException' with message '不在订餐时间内' in D:\wamp\www\mictfood\protected\controllers\SiteController.php:76
+Stack trace:
+#0 D:\wamp\www\mictfood\yii\framework\web\filters\CInlineFilter.php(58): SiteController->filtercheckIsOnTime(Object(CFilterChain))
+#1 D:\wamp\www\mictfood\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#2 D:\wamp\www\mictfood\protected\controllers\SiteController.php(52): CFilterChain->run()
+#3 D:\wamp\www\mictfood\yii\framework\web\filters\CInlineFilter.php(58): SiteController->filtercheckIsCartEmpty(Object(CFilterChain))
+#4 D:\wamp\www\mictfood\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 D:\wamp\www\mictfood\protected\controllers\SiteController.php(25): CFilterChain->run()
+#6 D:\wamp\www\mictfood\yii\framework\web\filters\CInlineFilter.php(58): SiteController->filtercheckLoginControl(Object(CFilterChain))
+#7 D:\wamp\www\mictfood\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#8 D:\wamp\www\mictfood\yii\framework\web\CController.php(291): CFilterChain->run()
+#9 D:\wamp\www\mictfood\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 D:\wamp\www\mictfood\yii\framework\web\CWebApplication.php(282): CController->run('confirmorder')
+#11 D:\wamp\www\mictfood\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/confirmord...')
+#12 D:\wamp\www\mictfood\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#13 D:\wamp\www\mictfood\index.php(13): CApplication->run()
+#14 {main}
+REQUEST_URI=/mictfood/index.php?r=site/confirmorder&shop_id=2
+HTTP_REFERER=http://localhost/mictfood/index.php?r=site/lookcart&shop_id=1
+---
+2015/09/12 12:14:04 [error] [exception.CHttpException.404] exception 'CHttpException' with message '不在订餐时间内' in D:\wamp\www\mictfood\protected\controllers\SiteController.php:76
+Stack trace:
+#0 D:\wamp\www\mictfood\yii\framework\web\filters\CInlineFilter.php(58): SiteController->filtercheckIsOnTime(Object(CFilterChain))
+#1 D:\wamp\www\mictfood\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#2 D:\wamp\www\mictfood\protected\controllers\SiteController.php(52): CFilterChain->run()
+#3 D:\wamp\www\mictfood\yii\framework\web\filters\CInlineFilter.php(58): SiteController->filtercheckIsCartEmpty(Object(CFilterChain))
+#4 D:\wamp\www\mictfood\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 D:\wamp\www\mictfood\protected\controllers\SiteController.php(25): CFilterChain->run()
+#6 D:\wamp\www\mictfood\yii\framework\web\filters\CInlineFilter.php(58): SiteController->filtercheckLoginControl(Object(CFilterChain))
+#7 D:\wamp\www\mictfood\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#8 D:\wamp\www\mictfood\yii\framework\web\CController.php(291): CFilterChain->run()
+#9 D:\wamp\www\mictfood\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 D:\wamp\www\mictfood\yii\framework\web\CWebApplication.php(282): CController->run('confirmorder')
+#11 D:\wamp\www\mictfood\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/confirmord...')
+#12 D:\wamp\www\mictfood\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#13 D:\wamp\www\mictfood\index.php(13): CApplication->run()
+#14 {main}
+REQUEST_URI=/mictfood/index.php?r=site/confirmorder&shop_id=2
+HTTP_REFERER=http://localhost/mictfood/index.php?r=site/lookcart&shop_id=1
+---
+2015/09/12 12:14:12 [error] [exception.CHttpException.404] exception 'CHttpException' with message '不在订餐时间内' in D:\wamp\www\mictfood\protected\controllers\SiteController.php:76
+Stack trace:
+#0 D:\wamp\www\mictfood\yii\framework\web\filters\CInlineFilter.php(58): SiteController->filtercheckIsOnTime(Object(CFilterChain))
+#1 D:\wamp\www\mictfood\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#2 D:\wamp\www\mictfood\yii\framework\web\CController.php(291): CFilterChain->run()
+#3 D:\wamp\www\mictfood\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#4 D:\wamp\www\mictfood\yii\framework\web\CWebApplication.php(282): CController->run('lookmenu')
+#5 D:\wamp\www\mictfood\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/lookmenu')
+#6 D:\wamp\www\mictfood\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#7 D:\wamp\www\mictfood\index.php(13): CApplication->run()
+#8 {main}
+REQUEST_URI=/mictfood/index.php?r=site/lookmenu&shop_id=2
+HTTP_REFERER=http://localhost/mictfood/index.php?r=site/lookcart&shop_id=1
+---
+2015/09/12 12:14:28 [error] [exception.CHttpException.404] exception 'CHttpException' with message '不在订餐时间内' in D:\wamp\www\mictfood\protected\controllers\SiteController.php:76
+Stack trace:
+#0 D:\wamp\www\mictfood\yii\framework\web\filters\CInlineFilter.php(58): SiteController->filtercheckIsOnTime(Object(CFilterChain))
+#1 D:\wamp\www\mictfood\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#2 D:\wamp\www\mictfood\protected\controllers\SiteController.php(52): CFilterChain->run()
+#3 D:\wamp\www\mictfood\yii\framework\web\filters\CInlineFilter.php(58): SiteController->filtercheckIsCartEmpty(Object(CFilterChain))
+#4 D:\wamp\www\mictfood\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 D:\wamp\www\mictfood\protected\controllers\SiteController.php(25): CFilterChain->run()
+#6 D:\wamp\www\mictfood\yii\framework\web\filters\CInlineFilter.php(58): SiteController->filtercheckLoginControl(Object(CFilterChain))
+#7 D:\wamp\www\mictfood\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#8 D:\wamp\www\mictfood\yii\framework\web\CController.php(291): CFilterChain->run()
+#9 D:\wamp\www\mictfood\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 D:\wamp\www\mictfood\yii\framework\web\CWebApplication.php(282): CController->run('confirmorder')
+#11 D:\wamp\www\mictfood\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/confirmord...')
+#12 D:\wamp\www\mictfood\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#13 D:\wamp\www\mictfood\index.php(13): CApplication->run()
+#14 {main}
+REQUEST_URI=/mictfood/index.php?r=site/confirmorder&shop_id=2
+HTTP_REFERER=http://localhost/mictfood/index.php?r=site/lookcart&shop_id=1
+---
+2015/09/12 12:20:34 [error] [exception.CHttpException.404] exception 'CHttpException' with message '日期格式设置有误' in D:\wamp\www\mictfood\protected\controllers\FoodorderController.php:233
+Stack trace:
+#0 D:\wamp\www\mictfood\yii\framework\web\actions\CInlineAction.php(49): FoodOrderController->actionTodayOrder()
+#1 D:\wamp\www\mictfood\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#2 D:\wamp\www\mictfood\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#3 D:\wamp\www\mictfood\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#4 D:\wamp\www\mictfood\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#5 D:\wamp\www\mictfood\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#6 D:\wamp\www\mictfood\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#7 D:\wamp\www\mictfood\yii\framework\web\CController.php(291): CFilterChain->run()
+#8 D:\wamp\www\mictfood\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#9 D:\wamp\www\mictfood\yii\framework\web\CWebApplication.php(282): CController->run('todayorder')
+#10 D:\wamp\www\mictfood\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('foodorder/today...')
+#11 D:\wamp\www\mictfood\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#12 D:\wamp\www\mictfood\index.php(13): CApplication->run()
+#13 {main}
+REQUEST_URI=/mictfood/index.php?r=foodorder/todayorder&date=2
+HTTP_REFERER=http://localhost/mictfood/index.php?r=foodorder
+---
+2015/09/12 12:20:59 [error] [exception.CHttpException.404] exception 'CHttpException' with message '日期格式设置有误' in D:\wamp\www\mictfood\protected\controllers\FoodorderController.php:233
+Stack trace:
+#0 D:\wamp\www\mictfood\yii\framework\web\actions\CInlineAction.php(49): FoodOrderController->actionTodayOrder()
+#1 D:\wamp\www\mictfood\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#2 D:\wamp\www\mictfood\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#3 D:\wamp\www\mictfood\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#4 D:\wamp\www\mictfood\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#5 D:\wamp\www\mictfood\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#6 D:\wamp\www\mictfood\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#7 D:\wamp\www\mictfood\yii\framework\web\CController.php(291): CFilterChain->run()
+#8 D:\wamp\www\mictfood\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#9 D:\wamp\www\mictfood\yii\framework\web\CWebApplication.php(282): CController->run('todayorder')
+#10 D:\wamp\www\mictfood\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('foodorder/today...')
+#11 D:\wamp\www\mictfood\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#12 D:\wamp\www\mictfood\index.php(13): CApplication->run()
+#13 {main}
+REQUEST_URI=/mictfood/index.php?r=foodorder/todayorder&date=31/08/2015
+HTTP_REFERER=http://localhost/mictfood/index.php?r=foodorder
+---
+2015/09/12 12:31:12 [error] [exception.CHttpException.404] exception 'CHttpException' with message '你今天已经订过该餐了！！常驻员工每天每餐仅每次仅允许订购一份！！' in D:\wamp\www\mictfood\protected\controllers\SiteController.php:177
+Stack trace:
+#0 D:\wamp\www\mictfood\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionLookMenu()
+#1 D:\wamp\www\mictfood\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#2 D:\wamp\www\mictfood\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#3 D:\wamp\www\mictfood\protected\controllers\SiteController.php(78): CFilterChain->run()
+#4 D:\wamp\www\mictfood\yii\framework\web\filters\CInlineFilter.php(58): SiteController->filtercheckIsOnTime(Object(CFilterChain))
+#5 D:\wamp\www\mictfood\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 D:\wamp\www\mictfood\yii\framework\web\CController.php(291): CFilterChain->run()
+#7 D:\wamp\www\mictfood\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 D:\wamp\www\mictfood\yii\framework\web\CWebApplication.php(282): CController->run('lookmenu')
+#9 D:\wamp\www\mictfood\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/lookmenu')
+#10 D:\wamp\www\mictfood\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#11 D:\wamp\www\mictfood\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/mictfood/index.php?r=site/lookmenu&shop_id=1
+HTTP_REFERER=http://localhost/mictfood/index.php?r=site/index
+---
+2015/09/13 11:33:34 [error] [php] unserialize() expects parameter 1 to be string, array given (D:\wamp\www\mictfood\protected\views\site\orderView.php:55)
+Stack trace:
+#0 D:\wamp\www\mictfood\yii\framework\web\CBaseController.php(95): SiteController->renderInternal()
+#1 D:\wamp\www\mictfood\yii\framework\web\CController.php(869): SiteController->renderFile()
+#2 D:\wamp\www\mictfood\yii\framework\web\CController.php(782): SiteController->renderPartial()
+#3 D:\wamp\www\mictfood\protected\controllers\SiteController.php(903): SiteController->render()
+#4 D:\wamp\www\mictfood\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionOrderView()
+#5 D:\wamp\www\mictfood\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#6 D:\wamp\www\mictfood\yii\framework\web\filters\CFilterChain.php(133): SiteController->runAction()
+#7 D:\wamp\www\mictfood\yii\framework\web\CController.php(291): CFilterChain->run()
+#8 D:\wamp\www\mictfood\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#9 D:\wamp\www\mictfood\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#10 D:\wamp\www\mictfood\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#11 D:\wamp\www\mictfood\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#12 D:\wamp\www\mictfood\index.php(13): CWebApplication->run()
+REQUEST_URI=/mictfood/index.php?r=site/orderview
+in D:\wamp\www\mictfood\protected\views\site\orderView.php (55)
+in D:\wamp\www\mictfood\protected\controllers\SiteController.php (903)
+in D:\wamp\www\mictfood\index.php (13)
+2015/09/13 11:33:45 [error] [php] unserialize() expects parameter 1 to be string, array given (D:\wamp\www\mictfood\protected\views\site\orderView.php:55)
+Stack trace:
+#0 D:\wamp\www\mictfood\yii\framework\web\CBaseController.php(95): SiteController->renderInternal()
+#1 D:\wamp\www\mictfood\yii\framework\web\CController.php(869): SiteController->renderFile()
+#2 D:\wamp\www\mictfood\yii\framework\web\CController.php(782): SiteController->renderPartial()
+#3 D:\wamp\www\mictfood\protected\controllers\SiteController.php(903): SiteController->render()
+#4 D:\wamp\www\mictfood\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionOrderView()
+#5 D:\wamp\www\mictfood\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#6 D:\wamp\www\mictfood\yii\framework\web\filters\CFilterChain.php(133): SiteController->runAction()
+#7 D:\wamp\www\mictfood\yii\framework\web\CController.php(291): CFilterChain->run()
+#8 D:\wamp\www\mictfood\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#9 D:\wamp\www\mictfood\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#10 D:\wamp\www\mictfood\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#11 D:\wamp\www\mictfood\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#12 D:\wamp\www\mictfood\index.php(13): CWebApplication->run()
+REQUEST_URI=/mictfood/index.php?r=site/orderview
+in D:\wamp\www\mictfood\protected\views\site\orderView.php (55)
+in D:\wamp\www\mictfood\protected\controllers\SiteController.php (903)
+in D:\wamp\www\mictfood\index.php (13)
+2015/09/13 11:55:39 [error] [php] Invalid argument supplied for foreach() (D:\wamp\www\mictfood\protected\controllers\SiteController.php:868)
+Stack trace:
+#0 D:\wamp\www\mictfood\yii\framework\web\filters\CFilterChain.php(133): SiteController->runAction()
+#1 D:\wamp\www\mictfood\yii\framework\web\CController.php(291): CFilterChain->run()
+#2 D:\wamp\www\mictfood\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#3 D:\wamp\www\mictfood\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#4 D:\wamp\www\mictfood\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#5 D:\wamp\www\mictfood\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#6 D:\wamp\www\mictfood\index.php(13): CWebApplication->run()
+REQUEST_URI=/mictfood/index.php?r=site/orderview
+in D:\wamp\www\mictfood\protected\controllers\SiteController.php (868)
+in D:\wamp\www\mictfood\index.php (13)
+2015/09/13 12:00:01 [error] [php] Illegal string offset 'name' (D:\wamp\www\mictfood\protected\controllers\SiteController.php:868)
+Stack trace:
+#0 D:\wamp\www\mictfood\yii\framework\web\filters\CFilterChain.php(133): SiteController->runAction()
+#1 D:\wamp\www\mictfood\yii\framework\web\CController.php(291): CFilterChain->run()
+#2 D:\wamp\www\mictfood\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#3 D:\wamp\www\mictfood\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#4 D:\wamp\www\mictfood\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#5 D:\wamp\www\mictfood\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#6 D:\wamp\www\mictfood\index.php(13): CWebApplication->run()
+REQUEST_URI=/mictfood/index.php?r=site/orderview
+in D:\wamp\www\mictfood\protected\controllers\SiteController.php (868)
+in D:\wamp\www\mictfood\index.php (13)
+2015/09/13 12:00:32 [error] [php] Illegal string offset 'product' (D:\wamp\www\mictfood\protected\controllers\SiteController.php:870)
+Stack trace:
+#0 D:\wamp\www\mictfood\yii\framework\web\filters\CFilterChain.php(133): SiteController->runAction()
+#1 D:\wamp\www\mictfood\yii\framework\web\CController.php(291): CFilterChain->run()
+#2 D:\wamp\www\mictfood\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#3 D:\wamp\www\mictfood\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#4 D:\wamp\www\mictfood\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#5 D:\wamp\www\mictfood\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#6 D:\wamp\www\mictfood\index.php(13): CWebApplication->run()
+REQUEST_URI=/mictfood/index.php?r=site/orderview
+in D:\wamp\www\mictfood\protected\controllers\SiteController.php (870)
+in D:\wamp\www\mictfood\index.php (13)
+2015/09/13 12:05:16 [error] [php] Illegal string offset 'product' (D:\wamp\www\mictfood\protected\controllers\SiteController.php:870)
+Stack trace:
+#0 D:\wamp\www\mictfood\yii\framework\web\filters\CFilterChain.php(133): SiteController->runAction()
+#1 D:\wamp\www\mictfood\yii\framework\web\CController.php(291): CFilterChain->run()
+#2 D:\wamp\www\mictfood\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#3 D:\wamp\www\mictfood\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#4 D:\wamp\www\mictfood\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#5 D:\wamp\www\mictfood\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#6 D:\wamp\www\mictfood\index.php(13): CWebApplication->run()
+REQUEST_URI=/mictfood/index.php?r=site/orderview
+in D:\wamp\www\mictfood\protected\controllers\SiteController.php (870)
+in D:\wamp\www\mictfood\index.php (13)
+2015/09/13 12:05:17 [error] [php] Illegal string offset 'product' (D:\wamp\www\mictfood\protected\controllers\SiteController.php:870)
+Stack trace:
+#0 D:\wamp\www\mictfood\yii\framework\web\filters\CFilterChain.php(133): SiteController->runAction()
+#1 D:\wamp\www\mictfood\yii\framework\web\CController.php(291): CFilterChain->run()
+#2 D:\wamp\www\mictfood\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#3 D:\wamp\www\mictfood\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#4 D:\wamp\www\mictfood\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#5 D:\wamp\www\mictfood\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#6 D:\wamp\www\mictfood\index.php(13): CWebApplication->run()
+REQUEST_URI=/mictfood/index.php?r=site/orderview
+in D:\wamp\www\mictfood\protected\controllers\SiteController.php (870)
+in D:\wamp\www\mictfood\index.php (13)
+2015/09/13 12:52:13 [error] [php] Invalid argument supplied for foreach() (D:\wamp\www\mictfood\protected\controllers\SiteController.php:871)
+Stack trace:
+#0 D:\wamp\www\mictfood\yii\framework\web\filters\CFilterChain.php(133): SiteController->runAction()
+#1 D:\wamp\www\mictfood\yii\framework\web\CController.php(291): CFilterChain->run()
+#2 D:\wamp\www\mictfood\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#3 D:\wamp\www\mictfood\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#4 D:\wamp\www\mictfood\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#5 D:\wamp\www\mictfood\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#6 D:\wamp\www\mictfood\index.php(13): CWebApplication->run()
+REQUEST_URI=/mictfood/index.php?r=site/orderview
+in D:\wamp\www\mictfood\protected\controllers\SiteController.php (871)
+in D:\wamp\www\mictfood\index.php (13)
+2015/09/13 13:50:34 [error] [php] Invalid argument supplied for foreach() (D:\wamp\www\mictfood\protected\views\site\orderView.php:109)
+Stack trace:
+#0 D:\wamp\www\mictfood\yii\framework\web\CController.php(869): SiteController->renderFile()
+#1 D:\wamp\www\mictfood\yii\framework\web\CController.php(782): SiteController->renderPartial()
+#2 D:\wamp\www\mictfood\protected\controllers\SiteController.php(934): SiteController->render()
+#3 D:\wamp\www\mictfood\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionOrderView()
+#4 D:\wamp\www\mictfood\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#5 D:\wamp\www\mictfood\yii\framework\web\filters\CFilterChain.php(133): SiteController->runAction()
+#6 D:\wamp\www\mictfood\yii\framework\web\CController.php(291): CFilterChain->run()
+#7 D:\wamp\www\mictfood\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#8 D:\wamp\www\mictfood\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#9 D:\wamp\www\mictfood\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#10 D:\wamp\www\mictfood\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#11 D:\wamp\www\mictfood\index.php(13): CWebApplication->run()
+REQUEST_URI=/mictfood/index.php?r=site/orderview
+in D:\wamp\www\mictfood\protected\views\site\orderView.php (109)
+in D:\wamp\www\mictfood\protected\controllers\SiteController.php (934)
+in D:\wamp\www\mictfood\index.php (13)
+2015/09/13 13:51:37 [error] [php] Invalid argument supplied for foreach() (D:\wamp\www\mictfood\protected\views\site\orderView.php:109)
+Stack trace:
+#0 D:\wamp\www\mictfood\yii\framework\web\CController.php(869): SiteController->renderFile()
+#1 D:\wamp\www\mictfood\yii\framework\web\CController.php(782): SiteController->renderPartial()
+#2 D:\wamp\www\mictfood\protected\controllers\SiteController.php(934): SiteController->render()
+#3 D:\wamp\www\mictfood\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionOrderView()
+#4 D:\wamp\www\mictfood\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#5 D:\wamp\www\mictfood\yii\framework\web\filters\CFilterChain.php(133): SiteController->runAction()
+#6 D:\wamp\www\mictfood\yii\framework\web\CController.php(291): CFilterChain->run()
+#7 D:\wamp\www\mictfood\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#8 D:\wamp\www\mictfood\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#9 D:\wamp\www\mictfood\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#10 D:\wamp\www\mictfood\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#11 D:\wamp\www\mictfood\index.php(13): CWebApplication->run()
+REQUEST_URI=/mictfood/index.php?r=site/orderview
+in D:\wamp\www\mictfood\protected\views\site\orderView.php (109)
+in D:\wamp\www\mictfood\protected\controllers\SiteController.php (934)
+in D:\wamp\www\mictfood\index.php (13)
+2015/09/13 15:08:29 [error] [exception.CException] exception 'CException' with message 'Property "CWebUser.member_userinfo" is not defined.' in D:\wamp\www\mictfood\yii\framework\base\CComponent.php:130
+Stack trace:
+#0 D:\wamp\www\mictfood\yii\framework\web\auth\CWebUser.php(146): CComponent->__get('member_userinfo')
+#1 D:\wamp\www\mictfood\protected\controllers\SiteController.php(158): CWebUser->__get('member_userinfo')
+#2 D:\wamp\www\mictfood\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionLookMenu()
+#3 D:\wamp\www\mictfood\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 D:\wamp\www\mictfood\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 D:\wamp\www\mictfood\protected\controllers\SiteController.php(78): CFilterChain->run()
+#6 D:\wamp\www\mictfood\yii\framework\web\filters\CInlineFilter.php(58): SiteController->filtercheckIsOnTime(Object(CFilterChain))
+#7 D:\wamp\www\mictfood\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#8 D:\wamp\www\mictfood\yii\framework\web\CController.php(291): CFilterChain->run()
+#9 D:\wamp\www\mictfood\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 D:\wamp\www\mictfood\yii\framework\web\CWebApplication.php(282): CController->run('lookmenu')
+#11 D:\wamp\www\mictfood\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/lookmenu')
+#12 D:\wamp\www\mictfood\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#13 D:\wamp\www\mictfood\index.php(13): CApplication->run()
+#14 {main}
+REQUEST_URI=/mictfood/index.php?r=site/lookmenu&shop_id=1
+HTTP_REFERER=http://localhost/mictfood/index.php?r=site/index
+---
+2015/09/13 15:09:59 [error] [exception.CException] exception 'CException' with message 'Property "CWebUser.member_userinfo" is not defined.' in D:\wamp\www\mictfood\yii\framework\base\CComponent.php:130
+Stack trace:
+#0 D:\wamp\www\mictfood\yii\framework\web\auth\CWebUser.php(146): CComponent->__get('member_userinfo')
+#1 D:\wamp\www\mictfood\protected\controllers\SiteController.php(158): CWebUser->__get('member_userinfo')
+#2 D:\wamp\www\mictfood\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionLookMenu()
+#3 D:\wamp\www\mictfood\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 D:\wamp\www\mictfood\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 D:\wamp\www\mictfood\protected\controllers\SiteController.php(78): CFilterChain->run()
+#6 D:\wamp\www\mictfood\yii\framework\web\filters\CInlineFilter.php(58): SiteController->filtercheckIsOnTime(Object(CFilterChain))
+#7 D:\wamp\www\mictfood\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#8 D:\wamp\www\mictfood\yii\framework\web\CController.php(291): CFilterChain->run()
+#9 D:\wamp\www\mictfood\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 D:\wamp\www\mictfood\yii\framework\web\CWebApplication.php(282): CController->run('lookmenu')
+#11 D:\wamp\www\mictfood\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/lookmenu')
+#12 D:\wamp\www\mictfood\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#13 D:\wamp\www\mictfood\index.php(13): CApplication->run()
+#14 {main}
+REQUEST_URI=/mictfood/index.php?r=site/lookmenu&shop_id=1
+HTTP_REFERER=http://localhost/mictfood/index.php?r=site/index
+---
+2015/09/13 15:10:03 [error] [exception.CException] exception 'CException' with message 'Property "CWebUser.member_userinfo" is not defined.' in D:\wamp\www\mictfood\yii\framework\base\CComponent.php:130
+Stack trace:
+#0 D:\wamp\www\mictfood\yii\framework\web\auth\CWebUser.php(146): CComponent->__get('member_userinfo')
+#1 D:\wamp\www\mictfood\protected\controllers\SiteController.php(158): CWebUser->__get('member_userinfo')
+#2 D:\wamp\www\mictfood\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionLookMenu()
+#3 D:\wamp\www\mictfood\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 D:\wamp\www\mictfood\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 D:\wamp\www\mictfood\protected\controllers\SiteController.php(78): CFilterChain->run()
+#6 D:\wamp\www\mictfood\yii\framework\web\filters\CInlineFilter.php(58): SiteController->filtercheckIsOnTime(Object(CFilterChain))
+#7 D:\wamp\www\mictfood\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#8 D:\wamp\www\mictfood\yii\framework\web\CController.php(291): CFilterChain->run()
+#9 D:\wamp\www\mictfood\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 D:\wamp\www\mictfood\yii\framework\web\CWebApplication.php(282): CController->run('lookmenu')
+#11 D:\wamp\www\mictfood\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/lookmenu')
+#12 D:\wamp\www\mictfood\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#13 D:\wamp\www\mictfood\index.php(13): CApplication->run()
+#14 {main}
+REQUEST_URI=/mictfood/index.php?r=site/lookmenu&shop_id=1
+HTTP_REFERER=http://localhost/mictfood/index.php?r=site/index
+---
+2015/09/13 15:10:08 [error] [exception.CException] exception 'CException' with message 'Property "CWebUser.member_userinfo" is not defined.' in D:\wamp\www\mictfood\yii\framework\base\CComponent.php:130
+Stack trace:
+#0 D:\wamp\www\mictfood\yii\framework\web\auth\CWebUser.php(146): CComponent->__get('member_userinfo')
+#1 D:\wamp\www\mictfood\protected\controllers\SiteController.php(158): CWebUser->__get('member_userinfo')
+#2 D:\wamp\www\mictfood\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionLookMenu()
+#3 D:\wamp\www\mictfood\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 D:\wamp\www\mictfood\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 D:\wamp\www\mictfood\protected\controllers\SiteController.php(78): CFilterChain->run()
+#6 D:\wamp\www\mictfood\yii\framework\web\filters\CInlineFilter.php(58): SiteController->filtercheckIsOnTime(Object(CFilterChain))
+#7 D:\wamp\www\mictfood\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#8 D:\wamp\www\mictfood\yii\framework\web\CController.php(291): CFilterChain->run()
+#9 D:\wamp\www\mictfood\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 D:\wamp\www\mictfood\yii\framework\web\CWebApplication.php(282): CController->run('lookmenu')
+#11 D:\wamp\www\mictfood\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/lookmenu')
+#12 D:\wamp\www\mictfood\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#13 D:\wamp\www\mictfood\index.php(13): CApplication->run()
+#14 {main}
+REQUEST_URI=/mictfood/index.php?r=site/lookmenu&shop_id=1
+HTTP_REFERER=http://localhost/mictfood/index.php?r=site/index
+---
+2015/09/13 15:10:22 [error] [exception.CException] exception 'CException' with message 'Property "CWebUser.member_userinfo" is not defined.' in D:\wamp\www\mictfood\yii\framework\base\CComponent.php:130
+Stack trace:
+#0 D:\wamp\www\mictfood\yii\framework\web\auth\CWebUser.php(146): CComponent->__get('member_userinfo')
+#1 D:\wamp\www\mictfood\protected\controllers\SiteController.php(158): CWebUser->__get('member_userinfo')
+#2 D:\wamp\www\mictfood\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionLookMenu()
+#3 D:\wamp\www\mictfood\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 D:\wamp\www\mictfood\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 D:\wamp\www\mictfood\protected\controllers\SiteController.php(78): CFilterChain->run()
+#6 D:\wamp\www\mictfood\yii\framework\web\filters\CInlineFilter.php(58): SiteController->filtercheckIsOnTime(Object(CFilterChain))
+#7 D:\wamp\www\mictfood\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#8 D:\wamp\www\mictfood\yii\framework\web\CController.php(291): CFilterChain->run()
+#9 D:\wamp\www\mictfood\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 D:\wamp\www\mictfood\yii\framework\web\CWebApplication.php(282): CController->run('lookmenu')
+#11 D:\wamp\www\mictfood\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/lookmenu')
+#12 D:\wamp\www\mictfood\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#13 D:\wamp\www\mictfood\index.php(13): CApplication->run()
+#14 {main}
+REQUEST_URI=/mictfood/index.php?r=site/lookmenu&shop_id=1
+HTTP_REFERER=http://localhost/mictfood/index.php?r=site/index
+---
+2015/09/13 15:13:52 [error] [exception.CHttpException.404] exception 'CHttpException' with message '你今天已经订过该餐了！！常驻员工每天每餐仅每次仅允许订购一份！！' in D:\wamp\www\mictfood\protected\controllers\SiteController.php:177
+Stack trace:
+#0 D:\wamp\www\mictfood\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionLookMenu()
+#1 D:\wamp\www\mictfood\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#2 D:\wamp\www\mictfood\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#3 D:\wamp\www\mictfood\protected\controllers\SiteController.php(78): CFilterChain->run()
+#4 D:\wamp\www\mictfood\yii\framework\web\filters\CInlineFilter.php(58): SiteController->filtercheckIsOnTime(Object(CFilterChain))
+#5 D:\wamp\www\mictfood\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 D:\wamp\www\mictfood\protected\controllers\SiteController.php(25): CFilterChain->run()
+#7 D:\wamp\www\mictfood\yii\framework\web\filters\CInlineFilter.php(58): SiteController->filtercheckLoginControl(Object(CFilterChain))
+#8 D:\wamp\www\mictfood\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#9 D:\wamp\www\mictfood\yii\framework\web\CController.php(291): CFilterChain->run()
+#10 D:\wamp\www\mictfood\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 D:\wamp\www\mictfood\yii\framework\web\CWebApplication.php(282): CController->run('lookmenu')
+#12 D:\wamp\www\mictfood\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/lookmenu')
+#13 D:\wamp\www\mictfood\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#14 D:\wamp\www\mictfood\index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/mictfood/index.php?r=site/lookmenu&shop_id=1
+HTTP_REFERER=http://localhost/mictfood/index.php?r=site/index
+---
+2015/09/13 15:14:10 [error] [exception.CHttpException.404] exception 'CHttpException' with message '你今天已经订过该餐了！！常驻员工每天每餐仅每次仅允许订购一份！！' in D:\wamp\www\mictfood\protected\controllers\SiteController.php:177
+Stack trace:
+#0 D:\wamp\www\mictfood\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionLookMenu()
+#1 D:\wamp\www\mictfood\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#2 D:\wamp\www\mictfood\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#3 D:\wamp\www\mictfood\protected\controllers\SiteController.php(78): CFilterChain->run()
+#4 D:\wamp\www\mictfood\yii\framework\web\filters\CInlineFilter.php(58): SiteController->filtercheckIsOnTime(Object(CFilterChain))
+#5 D:\wamp\www\mictfood\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 D:\wamp\www\mictfood\protected\controllers\SiteController.php(25): CFilterChain->run()
+#7 D:\wamp\www\mictfood\yii\framework\web\filters\CInlineFilter.php(58): SiteController->filtercheckLoginControl(Object(CFilterChain))
+#8 D:\wamp\www\mictfood\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#9 D:\wamp\www\mictfood\yii\framework\web\CController.php(291): CFilterChain->run()
+#10 D:\wamp\www\mictfood\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 D:\wamp\www\mictfood\yii\framework\web\CWebApplication.php(282): CController->run('lookmenu')
+#12 D:\wamp\www\mictfood\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/lookmenu')
+#13 D:\wamp\www\mictfood\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#14 D:\wamp\www\mictfood\index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/mictfood/index.php?r=site/lookmenu&shop_id=1
+HTTP_REFERER=http://localhost/mictfood/index.php?r=site/index
+---
+2015/09/13 15:16:25 [error] [exception.CHttpException.404] exception 'CHttpException' with message '你今天已经订过该餐了！！常驻员工每天每餐仅每次仅允许订购一份！！' in D:\wamp\www\mictfood\protected\controllers\SiteController.php:177
+Stack trace:
+#0 D:\wamp\www\mictfood\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionLookMenu()
+#1 D:\wamp\www\mictfood\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#2 D:\wamp\www\mictfood\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#3 D:\wamp\www\mictfood\protected\controllers\SiteController.php(78): CFilterChain->run()
+#4 D:\wamp\www\mictfood\yii\framework\web\filters\CInlineFilter.php(58): SiteController->filtercheckIsOnTime(Object(CFilterChain))
+#5 D:\wamp\www\mictfood\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 D:\wamp\www\mictfood\protected\controllers\SiteController.php(25): CFilterChain->run()
+#7 D:\wamp\www\mictfood\yii\framework\web\filters\CInlineFilter.php(58): SiteController->filtercheckLoginControl(Object(CFilterChain))
+#8 D:\wamp\www\mictfood\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#9 D:\wamp\www\mictfood\yii\framework\web\CController.php(291): CFilterChain->run()
+#10 D:\wamp\www\mictfood\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 D:\wamp\www\mictfood\yii\framework\web\CWebApplication.php(282): CController->run('lookmenu')
+#12 D:\wamp\www\mictfood\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/lookmenu')
+#13 D:\wamp\www\mictfood\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#14 D:\wamp\www\mictfood\index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/mictfood/index.php?r=site/lookmenu&shop_id=1
+HTTP_REFERER=http://localhost/mictfood/index.php?r=site/index
+---
+2015/09/13 15:19:05 [error] [exception.CHttpException.404] exception 'CHttpException' with message '您的账户余额不足，不能下单，到行政MM交钱吧！' in D:\wamp\www\mictfood\protected\controllers\SiteController.php:293
+Stack trace:
+#0 D:\wamp\www\mictfood\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionConfirmOrder()
+#1 D:\wamp\www\mictfood\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#2 D:\wamp\www\mictfood\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#3 D:\wamp\www\mictfood\protected\controllers\SiteController.php(78): CFilterChain->run()
+#4 D:\wamp\www\mictfood\yii\framework\web\filters\CInlineFilter.php(58): SiteController->filtercheckIsOnTime(Object(CFilterChain))
+#5 D:\wamp\www\mictfood\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 D:\wamp\www\mictfood\protected\controllers\SiteController.php(52): CFilterChain->run()
+#7 D:\wamp\www\mictfood\yii\framework\web\filters\CInlineFilter.php(58): SiteController->filtercheckIsCartEmpty(Object(CFilterChain))
+#8 D:\wamp\www\mictfood\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#9 D:\wamp\www\mictfood\protected\controllers\SiteController.php(25): CFilterChain->run()
+#10 D:\wamp\www\mictfood\yii\framework\web\filters\CInlineFilter.php(58): SiteController->filtercheckLoginControl(Object(CFilterChain))
+#11 D:\wamp\www\mictfood\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#12 D:\wamp\www\mictfood\yii\framework\web\CController.php(291): CFilterChain->run()
+#13 D:\wamp\www\mictfood\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 D:\wamp\www\mictfood\yii\framework\web\CWebApplication.php(282): CController->run('confirmorder')
+#15 D:\wamp\www\mictfood\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/confirmord...')
+#16 D:\wamp\www\mictfood\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#17 D:\wamp\www\mictfood\index.php(13): CApplication->run()
+#18 {main}
+REQUEST_URI=/mictfood/index.php?r=site/confirmorder&shop_id=1
+HTTP_REFERER=http://localhost/mictfood/index.php?r=site/lookcart&shop_id=1
+---
+2015/09/13 15:56:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message '创建失败' in D:\wamp\www\mictfood\protected\controllers\ShopsController.php:58
+Stack trace:
+#0 D:\wamp\www\mictfood\yii\framework\web\actions\CInlineAction.php(49): ShopsController->actionCreate()
+#1 D:\wamp\www\mictfood\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#2 D:\wamp\www\mictfood\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#3 D:\wamp\www\mictfood\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#4 D:\wamp\www\mictfood\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#5 D:\wamp\www\mictfood\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#6 D:\wamp\www\mictfood\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#7 D:\wamp\www\mictfood\yii\framework\web\CController.php(291): CFilterChain->run()
+#8 D:\wamp\www\mictfood\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#9 D:\wamp\www\mictfood\yii\framework\web\CWebApplication.php(282): CController->run('create')
+#10 D:\wamp\www\mictfood\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('shops/create')
+#11 D:\wamp\www\mictfood\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#12 D:\wamp\www\mictfood\index.php(13): CApplication->run()
+#13 {main}
+REQUEST_URI=/mictfood/index.php?r=shops/create
+HTTP_REFERER=http://localhost/mictfood/index.php?r=shops/form
+---
+2015/09/13 17:42:28 [error] [exception.CHttpException.404] exception 'CHttpException' with message '你的帐号被管理员禁用，请联系行政MM处理！' in D:\wamp\www\mictfood\protected\controllers\SiteController.php:305
+Stack trace:
+#0 D:\wamp\www\mictfood\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionConfirmOrder()
+#1 D:\wamp\www\mictfood\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#2 D:\wamp\www\mictfood\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#3 D:\wamp\www\mictfood\protected\controllers\SiteController.php(90): CFilterChain->run()
+#4 D:\wamp\www\mictfood\yii\framework\web\filters\CInlineFilter.php(58): SiteController->filtercheckIsOnTime(Object(CFilterChain))
+#5 D:\wamp\www\mictfood\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 D:\wamp\www\mictfood\protected\controllers\SiteController.php(64): CFilterChain->run()
+#7 D:\wamp\www\mictfood\yii\framework\web\filters\CInlineFilter.php(58): SiteController->filtercheckIsCartEmpty(Object(CFilterChain))
+#8 D:\wamp\www\mictfood\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#9 D:\wamp\www\mictfood\protected\controllers\SiteController.php(37): CFilterChain->run()
+#10 D:\wamp\www\mictfood\yii\framework\web\filters\CInlineFilter.php(58): SiteController->filtercheckLoginControl(Object(CFilterChain))
+#11 D:\wamp\www\mictfood\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#12 D:\wamp\www\mictfood\yii\framework\web\CController.php(291): CFilterChain->run()
+#13 D:\wamp\www\mictfood\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 D:\wamp\www\mictfood\yii\framework\web\CWebApplication.php(282): CController->run('confirmorder')
+#15 D:\wamp\www\mictfood\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/confirmord...')
+#16 D:\wamp\www\mictfood\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#17 D:\wamp\www\mictfood\index.php(13): CApplication->run()
+#18 {main}
+REQUEST_URI=/mictfood/index.php?r=site/confirmorder&shop_id=3
+HTTP_REFERER=http://localhost/mictfood/index.php?r=site/lookcart&shop_id=3
+---
+2015/09/13 18:30:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message '时间格式错误' in D:\wamp\www\mictfood\protected\controllers\ShopsController.php:41
+Stack trace:
+#0 D:\wamp\www\mictfood\yii\framework\web\actions\CInlineAction.php(49): ShopsController->actionCreate()
+#1 D:\wamp\www\mictfood\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#2 D:\wamp\www\mictfood\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#3 D:\wamp\www\mictfood\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#4 D:\wamp\www\mictfood\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#5 D:\wamp\www\mictfood\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#6 D:\wamp\www\mictfood\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#7 D:\wamp\www\mictfood\yii\framework\web\CController.php(291): CFilterChain->run()
+#8 D:\wamp\www\mictfood\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#9 D:\wamp\www\mictfood\yii\framework\web\CWebApplication.php(282): CController->run('create')
+#10 D:\wamp\www\mictfood\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('shops/create')
+#11 D:\wamp\www\mictfood\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#12 D:\wamp\www\mictfood\index.php(13): CApplication->run()
+#13 {main}
+REQUEST_URI=/mictfood/index.php?r=shops/create
+HTTP_REFERER=http://localhost/mictfood/index.php?r=shops/form
+---

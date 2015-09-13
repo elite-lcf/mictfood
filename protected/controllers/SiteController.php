@@ -8,12 +8,24 @@ class SiteController extends FormerController
 	public function filters()
 	{
 		return array(
-			'checkLoginControl + confirmorder,orderok,membercenter,myorder,modifypassword,domodify,systemnotice,cancelorder,seeconsume',//检测是否登录
+			'checkLoginControl + lookmenu,confirmorder,orderok,membercenter,myorder,modifypassword,domodify,systemnotice,cancelorder,seeconsume',//检测是否登录
 			'checkIsCartEmpty + lookcart,confirmorder',//检测购物车是否为空
 			'checkReqiest + doregister,domodify,submitmessage,replymessage',//判断是不是ajax请求
 			'checkIsOnTime +lookmenu,lookcart,confirmorder',//判断是否在订餐时间内
+		    'checkAdmin +register',//判断是否有管理员权限
 		);
 	}
+	
+    //控制管理员是否登录
+	public function filtercheckAdmin($filterChain)
+	{
+	    if(!isset(Yii::app()->user->admin_userinfo))
+		{
+			$this->redirect(Yii::app()->createUrl('index'));
+		}
+		$filterChain->run();
+	}
+
 	
 	//控制会员是否登录
 	public function filtercheckLoginControl($filterChain)
@@ -73,7 +85,7 @@ class SiteController extends FormerController
 		
 	    if(!Yii::app()->check_time->isShopOntime($shop_id))
 		{
-			throw new CHttpException(404,Yii::t('yii','不在订餐时间内'));
+			throw new CHttpException(404,Yii::t('yii','不在当前餐类的订餐时间内！'));
 		}
 		$filterChain->run();
 	}
@@ -251,7 +263,9 @@ class SiteController extends FormerController
 		    
 		    foreach ($this->order['Items'] AS $k => $v)
 				{
-					$this->order['Items'][$k]['Price'] = 0;
+					//$this->order['Items'][$k]['Price'] = $v['Price'];
+				    //$this->order['Items'][$k]['smallTotal'] = $v['Count'] * $v['Price'];
+				    $this->order['Items'][$k]['Price'] = 0;
 				    $this->order['Items'][$k]['smallTotal'] = $v['Count'] * $v['Price'];
 				}
 		}
@@ -273,13 +287,28 @@ class SiteController extends FormerController
 		    foreach ($this->order['Items'] AS $k => $v)
 				{
 					$this->order['Items'][$k]['Price'] = 0;
-				    $this->order['Items'][$k]['smallTotal'] = $v['Count'] * $v['Price'];
+				    $this->order['Items'][$k]['smallTotal'] = 0;
 				}
 		}
 		
+		//服务器端判断订餐时间有没有超过限制时间
+	    $shop_id = Yii::app()->request->getParam('shop_id');
+		
+	    if(!Yii::app()->check_time->isShopOntime($shop_id))
+		{
+			throw new CHttpException(404,Yii::t('yii','你提交的订餐不在该餐订餐时间内'));
+		}
+		
+		//如果状态禁用，不允许提交订单
+	    if($memberInfo->status == 2)
+		{
+			throw new CHttpException(404,Yii::t('yii','你的帐号被管理员禁用，请联系行政MM处理！'));
+		}
+		
+		
 		if($memberInfo->balance < $this->order['Total'] && !in_array(Yii::app()->user->member_userinfo['id'], Yii::app()->params['allow_user_id'])) 
 		{
-			throw new CHttpException(404,Yii::t('yii','亲！您的账户余额不足，不能下单哦，到行政MM交钱吧！'));
+			throw new CHttpException(404,Yii::t('yii','您的账户余额不足，不能下单，到行政MM交钱吧！'));
 		}
 				
 		
@@ -788,6 +817,142 @@ class SiteController extends FormerController
 		$this->render('seeconsume',array(
 			'data' => $data,
 			'pages'	=> $pages
+		));
+	}
+	
+    //LCF:订单前台展示
+	//如果有查询时间输入
+	public function actionOrderView()
+	{
+		//创建查询条件
+		$criteria = new CDbCriteria();
+		$criteria->order = 't.create_time DESC';//按时间倒序排
+		
+		//如果没有指定日期，默认查询当天的订单统计
+		$date = Yii::app()->request->getParam('date');
+		if($date)
+		{
+			$today = strtotime(date($date));
+			if(!$today)
+			{
+				throw new CHttpException(404,'日期格式设置有误');
+			}
+			else if($today > time()) 
+			{
+				throw new CHttpException(404,'设置的日期不能超过今天');
+			}
+			$tomorrow = $today + 24*3600;
+		}
+		else 
+		{
+			$today = strtotime(date('Y-m-d'));
+			$tomorrow = strtotime(date('Y-m-d',time()+24*3600));
+		}
+		
+		$criteria->condition = '(t.status = :status1 OR t.status = :status2) AND t.create_time > :today AND t.create_time < :tomorrow';
+		$criteria->params = array(':status1' => 1,':status2' => 2,':today' => $today,':tomorrow' => $tomorrow);
+		$model = FoodOrder::model()->with('shops','members')->findAll($criteria);
+		$data = array();
+		$_total_price = 0;
+		$tongji = array();
+		//存储所有订餐的人员名单
+		$orderList = array();
+		
+		//处理查询得到的每一条订单
+		//k表示键值，v表示每一条订单
+		foreach($model AS $k => $v)
+		{
+			$_total_price += $v->total_price;
+			$data[$k] = $v->attributes;
+			$data[$k]['product_info'] = unserialize($v->product_info);
+			$data[$k]['shop_name'] = $v->shops->name;
+			$data[$k]['user_name'] = $v->members->name;
+			$data[$k]['create_time'] = date('Y-m-d H:i:s',$v->create_time);
+			$data[$k]['status_text'] = Yii::app()->params['order_status'][$v->status];
+			$data[$k]['status_color'] = Yii::app()->params['status_color'][$v->status];	
+			//统计
+			$tongji[$v->shop_id]['name'] = $v->shops->name;
+			$tongji[$v->shop_id]['product'][] = unserialize($v->product_info);
+			
+			//将所有订单按shopName,username,orderinfo存储起来
+			$orderList[$v->shop_id]['food_class'] = $v->shops->name;
+			$orderList[$v->shop_id]['order'][$v->food_user_id]['user_name'] = $v->members->name;
+			$orderList[$v->shop_id]['order'][$v->food_user_id]['order_info'][] = unserialize($v->product_info);
+		}
+		
+		//按餐类和地点重新组织为orderviewlist
+		$orderViewList = array();
+		
+		//统计结果
+		$result = array();
+		$foodTotalCount = 0;
+		foreach ($orderList AS $k => $v)
+		{
+			$result[$k]['name'] = $v['food_class'];
+			$orderViewList[$k]['foodClass'] = $v['food_class'];;
+			
+			$shop_total_price = 0;
+			$foodsShopTotalCount = 0;
+			foreach($v['order'] AS $lk => $lv)
+			{
+			    //$orderViewList[$k]['order'][$lk]['userName']=$lv['user_name'];
+			    foreach($lv['order_info'] As $_k => $_v)
+			    {
+				foreach ($_v AS $kk => $vv)
+				{
+					$shop_total_price += $vv['smallTotal'];
+					$foodsShopTotalCount += $vv['Count'];
+					$result[$k]['product'][$vv['Id']]['name'] = $vv['Name'];
+					if($result[$k]['product'][$vv['Id']]['count'])
+					{
+						$result[$k]['product'][$vv['Id']]['count'] += $vv['Count'];
+					}
+					else 
+					{
+						$result[$k]['product'][$vv['Id']]['count'] = $vv['Count'];
+					}
+					
+				    if($result[$k]['product'][$vv['Id']]['smallTotal'])
+					{
+						$result[$k]['product'][$vv['Id']]['smallTotal'] += $vv['smallTotal'];
+					}
+					else 
+					{
+						$result[$k]['product'][$vv['Id']]['smallTotal'] = $vv['smallTotal'];
+					}
+					
+					//LCF:统计orderViewList列表
+					//orderview
+					if ($orderViewList[$k]['locations'][$vv['Id']]['count'])
+					{
+					    $orderViewList[$k]['locations'][$vv['Id']]['count'] += $vv['Count'];
+					}
+					else
+					{
+					    $orderViewList[$k]['locations'][$vv['Id']]['count'] = $vv['Count'];
+					}
+					
+					$orderViewList[$k]['locations'][$vv['Id']]['locationName'] = $vv['Name'];
+					$orderViewList[$k]['locations'][$vv['Id']]['orderItems'][$lk]['userName'] = $lv['user_name'];
+					$orderViewList[$k]['locations'][$vv['Id']]['orderItems'][$lk]['count'] += $vv['Count'];;					
+					
+				}
+			}
+			}
+			
+			$result[$k]['shop_total_price'] = $shop_total_price;
+			$orderViewList[$k]['totalCount'] = $foodsShopTotalCount;
+			$foodTotalCount += $foodsShopTotalCount;
+		}
+		
+		//输出到前端
+		$this->render('orderView', array(
+		    'foodTotalCount' => $foodTotalCount,
+		    'orderViewList' => $orderViewList,
+			'data' 	=> $data,
+			'statistics' => $result,
+			'total_price' => $_total_price,
+			'date' => $date,
 		));
 	}
 }

@@ -71,5 +71,5 @@ $(function(){
     </div>
 </div>
 <div class="to-top">
-    <a href="#" title="回到顶部" class="top">回顶部</a> <a href="#" title="选择其它餐厅" class="back">选餐厅</a>
+    <a href="#" title="回到顶部" class="top">回顶部</a> <a href="#" title="选择其它餐类" class="back">选餐类</a>
 </div>

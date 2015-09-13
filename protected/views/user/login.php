@@ -10,7 +10,7 @@
 <body id="login">
 <div id="login-wrapper" class="png_bg">
   <div id="login-top">
-    <h1>订餐系统</h1>
+    <h1>MICT订餐系统</h1>
     <!-- Logo (221px width) -->
     <a href="#"><img id="logo" src="<?php echo Yii::app()->request->baseUrl; ?>/assets/images/logo.png"  /></a> 
     </div>

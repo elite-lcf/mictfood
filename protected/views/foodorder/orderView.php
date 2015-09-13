@@ -1,5 +1,6 @@
 <div class="content-box">
       <!-- Start Content Box -->
+      <!-- 用户界面展示当天所有订餐 -->>
       <div class="content-box-header">
         <h3><?php if($date):?><?php echo $date;?><?php else:?>今日<?php endif;?> 订单统计</h3>
         <ul class="content-box-tabs">

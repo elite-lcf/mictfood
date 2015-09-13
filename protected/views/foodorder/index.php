@@ -105,7 +105,7 @@ $(function(){
                   <input class="check-all" type="checkbox" />
                 </th>
                 <th>订单号</th>
-                <th>所属商家</th>
+                <th>所属餐类</th>
                 <th>用户名</th>
                 <th>订单状态</th>
                 <th>总价</th>

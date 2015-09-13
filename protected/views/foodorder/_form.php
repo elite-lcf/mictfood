@@ -16,7 +16,7 @@
 	            </p>
 	            
 	            <p>
-	              <label>餐厅名：<?php echo $data['shop_name'];?></label>
+	              <label>餐类：<?php echo $data['shop_name'];?></label>
 	            </p>
 	            
 	            <p>

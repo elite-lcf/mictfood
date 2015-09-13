@@ -7,7 +7,7 @@
                             <!--  <input id="showOnLine" class="fl" type="checkbox"><span class="fl">仅显示营业中</span>-->
                         </p>
                         <p class="step">
-                            <span>交预付款</span><span>选中餐/晚餐</span><span>选地点</span><span>确认订单</span><span>秘书MM统一收集</span>
+                            <span>交预付款</span><span>选中餐/晚餐</span><span>选地点</span><span>确认订单</span><span>行政MM统一收集</span>
                         </p>
                     </div>
                     <div class="sup_list_body shadow" id="hallListOnline">
@@ -74,38 +74,28 @@
 
 <div id="right">
 	<div class="right_item shadow" id="siteNotice">
-	    <h3>餐厅公告</h3>
+	    <h3>公告栏</h3>
 	    <div class="ri_body">
 	    <?php foreach ($announce AS $_k => $_v):?>
 	    <p><?php echo $_v['content'];?></p>
 	    <?php endforeach;?>
 	    </div>
 	</div>
-	<div class="right_item shadow" id="siteNotice">
-	    <h3>当前时间</h3>
-	    <div class="ri_body">
-	    <a href="<?php echo Yii::app()->createUrl('site/index') ?>"> <?php echo date('Y-m-d H:i:s');?> </a>
-	   
+	
+	<div class="right_item shadow" id="quickLinks">
+	    <h3>快速服务</h3>
+	    <div class="ri_body" style="font-weight:bold;">
+	   	<a href="<?php echo Yii::app()->createUrl('site/orderView') ?>">查询今天订餐列表 </a>
 	    </div>
 	</div>
+	
 	<div class="right_item shadow" id="customerService">
 	    <h3>
 	        客户服务</h3>
 	    <div class="ri_body">
-	        <p>秘书MM: 小康</p>
-	        <p>技术支持: OM MS Team</p>
+	        <p>行政MM: Kyat Kyat</p>
+	        <p>技术支持: Huawei MS Team</p>
 	    </div>
 	</div>
-	<div class="right_item shadow" id="customerService">
-	    <h3>账户余额不足名单</h3>
-	    <div class="ri_body">
-	    	<?php if($members):?>
-	    	<?php foreach ($members AS $_k => $_v):?>
-	        	<p><?php echo $_v['name'];?>-------仅剩<?php echo $_v['balance'];?>Ks</p>
-	        <?php endforeach;?>
-	        <?php else:?>
-	        	<p>暂时没有</p>
-	        <?php endif;?>
-	    </div>
-	</div>
+
 </div>

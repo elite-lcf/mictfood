@@ -15,7 +15,7 @@ else
 <div class="content-box">
       <!-- Start Content Box -->
       <div class="content-box-header">
-        <h3><?php echo $op_text;?>商家</h3>
+        <h3><?php echo $op_text;?>餐类</h3>
         <ul class="content-box-tabs">
           <li><a href="#tab1" class="default-tab">表单</a></li>
         </ul>
@@ -40,24 +40,24 @@ else
             </p>
             
             <p>
-              <label>地址</label>
+              <label>餐类说明</label>
               <input class="text-input small-input" type="text" name="Shops[address]" value="<?php echo CHtml::encode($data['address']); ?>" />
             </p>
             
             <p>
-              <label>订餐起始时间</label>
+              <label>订餐起始时间(格式: hh:mm:ss 如:13:30:00)</label>
               <input class="text-input small-input" type="text" name="Shops[starttime]" value="<?php echo CHtml::encode($data['starttime']); ?>"/>
             </p>
             
             <p>
-              <label>订餐结束时间</label>
+              <label>订餐结束时间(格式: hh:mm:ss 如:16:30:00)</label>
               <input class="text-input small-input" type="text" name="Shops[endtime]" value="<?php echo CHtml::encode($data['endtime']); ?>"/>
             </p>
             
 
             
             <p>
-              <label>商家网站链接</label>
+              <label>食品简介</label>
               <input class="text-input small-input" type="text" name="Shops[url]" value="<?php echo CHtml::encode($data['url']); ?>"/>
             </p>
             

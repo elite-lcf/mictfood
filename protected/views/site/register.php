@@ -82,7 +82,7 @@ $(function(){
                     </li>
 					<li class="resident_flag">
                         <label>是否常驻：</label>
-                        <?php echo CHtml::radioButtonList('resident','',array('1'=>'常驻','0'=>'出差'),
+                        <?php echo CHtml::radioButtonList('resident','',array('1'=>'常驻','0'=>'自费'),
                         array('separator'=>'','labelOptions'=>array(
                            'style'=>'width: 30px;'))); ?>
                     </li>

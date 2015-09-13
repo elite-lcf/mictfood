@@ -32,6 +32,16 @@ class ShopsController extends Controller
 	public function actionCreate()
 	{
 		$model=new Shops();
+		
+		//判断时间格式
+		$is_startTime=strtotime($_POST['Shops']['starttime'])?true:false;
+		$is_endTime=strtotime($_POST['Shops']['endtime'])?true:false;
+		if(!$is_startTime || !$is_endTime)
+		{
+		    throw new CHttpException(404,'时间格式错误');
+		}
+		
+		
 		//处理图片
 		if($_FILES['logo'] && !$_FILES['logo']['error'])
 		{
@@ -71,6 +81,14 @@ class ShopsController extends Controller
 		if(!isset($id))
 		{
 			throw new CHttpException(404,'param id is not exists');
+		}
+		
+	    //判断时间格式
+		$is_startTime=strtotime($_POST['Shops']['starttime'])?true:false;
+		$is_endTime=strtotime($_POST['Shops']['endtime'])?true:false;
+		if(!$is_startTime || !$is_endTime)
+		{
+		    throw new CHttpException(404,'时间格式错误');
 		}
 		
 		//处理图片
@@ -206,7 +224,7 @@ class ShopsController extends Controller
 		$id = Yii::app()->request->getParam('id');
 		if(!$id)
 		{
-			throw new CHttpException(404,Yii::t('yii','请选择一家餐厅'));
+			throw new CHttpException(404,Yii::t('yii','请选择一个餐类'));
 		}
 		
 		$model = $this->loadModel($id);
