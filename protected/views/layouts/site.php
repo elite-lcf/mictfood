@@ -80,7 +80,7 @@ Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/assets/js/f
 
 <div id="footer">
     <hr/>
-    <p>Copyright © 2015-2016 MICT订餐网 All Rights Reserved 缅ICP备997号 | 仰光网安备997号</p>
+    <p>Copyright © 2015-2016 MICT订餐网  All Rights Reserved 缅ICP备997号 | 仰光网安备997号|Powered by [Owen]&[Yu.Han]</p>
 </div>
 
 <div style="text-align: center;">

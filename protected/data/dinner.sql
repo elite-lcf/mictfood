@@ -158,6 +158,7 @@ CREATE TABLE IF NOT EXISTS `liv_members` (
   `create_time` int(10) NOT NULL,
   `update_time` int(10) NOT NULL,
   `order_id` int(10) NOT NULL DEFAULT '0' COMMENT '排序id',
+  `resident` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='前台会员表' AUTO_INCREMENT=1 ;
 
@@ -236,7 +237,7 @@ CREATE TABLE IF NOT EXISTS `liv_user` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='后台用户表' AUTO_INCREMENT=1 ;
 
 INSERT INTO `liv_user` (`id`, `username`, `password`, `salt`, `create_time`, `order_id`) VALUES
-(1, 'admin', '6b3e3f74a9ec2fbc517f50b483c5d4fa', 'aqdlt', 1398517782, 1);
+(1, 'admin', '6507fe6eeb77ede021e0411be10ffd5f', 'aqdlt', 1398517782, 1);
 
 -- --------------------------------------------------------
 

@@ -341,8 +341,11 @@ $(function(){
 						                      <?php endfor;?>
 			                            </tbody>
 	                           </table> 
+	                           
 	                    </div> 
+	                    <a href="<?php echo Yii::app()->createUrl('site/lookcart',array('shop_id' => $shop['id']));?>" class="fr">去下单&gt; </a>
 	                </div>
+	                
 	    </div>
 	    <!-- 留言区域 start-->
 	    <div id="tab_comment" style="display:none;">
