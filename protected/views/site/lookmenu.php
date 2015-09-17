@@ -35,7 +35,7 @@ $(function(){
 		var shop_id = $('#shop_id').val();
 		if(_cart.Read().shop_id && (parseInt(shop_id) != parseInt(_cart.Read().shop_id)))
 		{
-			alert('当前购物车里面的菜来自:《'+_cart.Read().shop_name+'》，请清空购物车之后再选菜');
+			alert('当前购物车里面的菜来自:<'+_cart.Read().shop_name+'>，请清空购物车之后再选菜');
 			return;
 		}
 		else if(!_cart.Read().shop_id)
